@@ -9,8 +9,10 @@
 - **Tech Step 1:** Project scaffold (vite, license, editorconfig, readme, simplify command)
 - **Tech Step 2:** Design tokens extracted with semantic aliases
 
+- **Tech Step 3:** Clean HTML shell — index.html (no inline styles/scripts), src/js/main.js placeholder
+
 ## In Progress
-- **Tech Step 3:** Split HTML into modules
+- **Tech Step 4:** base.css — resets, layout, grids, sections, responsive
 
 ## Next
-- **Tech Step 4:** base.css — resets, layout, grids, sections, responsive
+- **Tech Step 5:** nav.css — top nav, sub-nav, mobile menu

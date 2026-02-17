@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://i.pravatar.cc">
+<link rel="preconnect" href="https://picsum.photos">
+<link rel="dns-prefetch" href="https://i.pravatar.cc">
+<link rel="dns-prefetch" href="https://picsum.photos">
+<title>PERSONA VAULT</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230e0e10'/><rect x='8' y='8' width='84' height='84' rx='14' fill='none' stroke='%23c4a46c' stroke-width='4'/><text x='50' y='62' text-anchor='middle' font-family='system-ui' font-weight='800' font-size='42' fill='%23c4a46c'>PV</text></svg>">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/styles/main.css">
+</head><body>
+<a href="#pvContent" class="skip-link">Skip to content</a>
+<canvas id="sky" aria-hidden="true"></canvas>
+<canvas id="dna" aria-hidden="true"></canvas>
+<div class="pv-app">
+<div class="sb-ov" id="sbOv" onclick="closeSb()"></div>
+<aside class="pv-sb" id="pvSb">
+<div class="sb-logo"><div class="logo-m" aria-hidden="true">P</div><span>Persona Vault</span></div>
+<nav aria-label="Main navigation">
+<button class="sb-i active" data-page="explore" onclick="showPage('explore')" aria-current="page"><span class="sb-ic" aria-hidden="true">&#9670;</span>Explore</button>
+<button class="sb-i" data-page="passport" onclick="showPage('passport')"><span class="sb-ic" aria-hidden="true">&#9672;</span>AI Passport</button>
+<button class="sb-i" data-page="packs" onclick="showPage('packs')"><span class="sb-ic" aria-hidden="true">&#9643;</span>Packs</button>
+<button class="sb-i" data-page="earn" onclick="showPage('earn')"><span class="sb-ic" aria-hidden="true">&#9733;</span>Earn</button>
+<button class="sb-i" data-page="verify" onclick="showPage('verify')"><span class="sb-ic" aria-hidden="true">&#10003;</span>Verify</button>
+</nav>
+</aside>
+<main class="pv-main">
+<div class="pv-top">
+<button class="sb-ham" id="sbHam" onclick="toggleSb()" aria-label="Toggle sidebar menu" aria-expanded="false"><span></span><span></span><span></span></button>
+<div class="nsr"><span class="ic">&#9906;</span><input id="si" placeholder="Search personas..." oninput="doSearch(this.value)" aria-label="Search personas" role="searchbox"></div>
+<div style="display:flex;align-items:center;gap:8px">
+<div class="lang-sw" role="group" aria-label="Switch language"><button class="lang-opt on" onclick="setLang('en')" aria-label="English" aria-pressed="true">EN</button><button class="lang-opt" onclick="setLang('ru')" aria-label="Russian" aria-pressed="false">RU</button></div>
+<button id="themeBtn" onclick="toggleTheme()" style="background:none;border:1px solid var(--s4);border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--t2);transition:.2s" title="Toggle theme" aria-label="Toggle dark/light theme">&#9790;</button>
+
+</div></div>
+<div class="pv-content" id="pvContent" role="main">
+<div class="pv-page active" id="page-explore" aria-label="Explore page">
+<!-- HERO — Trust-First (Peak-End Rule: first impression = trust, not hype) -->
+<header class="hero" role="banner" style="padding:48px 0 0;position:relative">
+
+<!-- Small trust label -->
+<p style="font-size:10px;font-weight:600;letter-spacing:3px;color:var(--t3);text-transform:uppercase;margin-bottom:12px">AI Identity Infrastructure</p>
+
+<!-- Clear value proposition — answers "What is this?" -->
+<h1 style="font-family:var(--d);font-size:clamp(24px,3.5vw,40px);font-weight:700;line-height:1.15;margin-bottom:14px;max-width:560px">Every AI persona deserves<br>a <span style="color:var(--ac)">verified identity</span>.</h1>
+
+<!-- Subtext — answers "Is it for me?" and "Does it work?" -->
+<p style="font-size:13px;color:var(--t2);max-width:480px;line-height:1.65;margin-bottom:24px">Persona Vault creates verified digital passports for AI&#8209;generated personas&thinsp;&mdash;&thinsp;complete with biometrics, content packages, and commercial licensing. Built for creators who need trust.</p>
+
+<!-- ONE CTA — Fitts' Law: one large target (Von Restorff: stands out as the only action) -->
+<button class="nc p" style="padding:12px 28px;font-size:13px;cursor:pointer;border-radius:var(--r3);display:inline-block" onclick="document.querySelector('#catG').scrollIntoView({behavior:'smooth',block:'start'})">Explore the Registry</button>
+
+<!-- Mini passport preview — Von Restorff: show the differentiator -->
+<div style="margin-top:32px;display:flex;align-items:center;gap:20px">
+<div style="width:72px;height:100px;border-radius:6px;background:linear-gradient(160deg,#0a1628,#0f1f3a);border:1.5px solid rgba(196,164,108,.35);position:relative;overflow:hidden;flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 12px rgba(196,164,108,.08)">
+  <!-- Holographic shine -->
+  <div style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,220,130,.08) 45%,rgba(255,255,255,.12) 50%,rgba(255,220,130,.08) 55%,transparent 70%);background-size:250% 100%;animation:shineBeam 4s ease-in-out infinite;pointer-events:none"></div>
+  <!-- Mini passport content -->
+  <div style="padding:8px 6px;position:relative;z-index:2;text-align:center">
+    <div style="font-family:var(--d);font-size:7px;font-weight:700;letter-spacing:2px;color:rgba(196,164,108,.7);margin-bottom:4px">PV</div>
+    <div style="width:28px;height:34px;border-radius:2px;background:var(--s3);margin:0 auto 4px;border:1px solid rgba(255,255,255,.08)"></div>
+    <div style="font-size:5px;letter-spacing:1px;color:rgba(255,255,255,.3)">AI PASSPORT</div>
+    <div style="font-family:'Courier New',monospace;font-size:4px;color:rgba(255,255,255,.15);margin-top:4px;letter-spacing:.5px">PV&lt;&lt;VERIFIED&lt;&lt;</div>
+  </div>
+</div>
+<div style="font-size:11px;color:var(--t3);line-height:1.5;max-width:280px">
+  <span style="color:var(--vf)">&#10003;</span> Verified synthetic origin<br>
+  <span style="color:var(--ac)">&#9670;</span> QR-traceable identity<br>
+  <span style="color:var(--gold)">L</span> Commercial license included
+</div>
+</div>
+
+</header>
+
+<!-- BENTO GRID DASHBOARD — Gestalt Proximity + Miller's Law (5-7 chunks) -->
+<div class="bento-grid" style="margin-top:32px">
+
+<!-- ROW 1 LEFT: Featured Personas (large) -->
+<div class="bento-box">
+  <div class="bento-label">FEATURED PERSONAS</div>
+  <div class="bento-featured-scroll" id="featuredG"></div>
+  <a class="bento-link" role="button" tabindex="0" onclick="document.querySelector('#catG').scrollIntoView({behavior:'smooth',block:'start'})">View full registry &#8594;</a>
+</div>
+
+<!-- ROW 1 RIGHT: AI Passport Preview -->
+<div class="bento-box" style="grid-row:span 2">
+  <div class="bento-label">AI PASSPORT</div>
+  <div class="bento-passport-mini">
+    <div class="bento-passport-card">
+      <div style="position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,220,130,.08) 45%,rgba(255,255,255,.12) 50%,rgba(255,220,130,.08) 55%,transparent 70%);background-size:250% 100%;animation:shineBeam 4s ease-in-out infinite;pointer-events:none"></div>
+      <div style="padding:10px 8px;position:relative;z-index:2;text-align:center">
+        <div style="font-family:var(--d);font-size:8px;font-weight:700;letter-spacing:2px;color:rgba(196,164,108,.7);margin-bottom:6px">PV</div>
+        <div style="width:32px;height:40px;border-radius:3px;background:var(--s3);margin:0 auto 6px;border:1px solid rgba(255,255,255,.08)"></div>
+        <div style="font-size:6px;letter-spacing:1px;color:rgba(255,255,255,.3)">AI PASSPORT</div>
+        <div style="font-family:'Courier New',monospace;font-size:4px;color:rgba(255,255,255,.15);margin-top:4px;letter-spacing:.5px">PV&lt;&lt;VERIFIED&lt;&lt;</div>
+      </div>
+    </div>
+    <div style="flex:1">
+      <div style="font-size:11px;color:var(--t2);line-height:1.6;margin-bottom:8px">
+        <span style="color:var(--vf)">&#10003;</span> Verified synthetic origin<br>
+        <span style="color:var(--ac)">&#9670;</span> QR-traceable identity<br>
+        <span style="color:var(--gold)">L</span> Commercial license
+      </div>
+    </div>
+  </div>
+  <a class="bento-link" role="button" tabindex="0" onclick="showPage('passport')" style="margin-top:12px">Learn more &#8594;</a>
+</div>
+
+<!-- ROW 2 LEFT-LEFT: Quick Stats / Launch Status -->
+<div class="bento-box">
+  <div class="bento-label">STATUS</div>
+  <div class="bento-stats">
+    <div class="bento-stat"><b style="color:var(--ac)">Q1</b><small>2026 Launch</small></div>
+    <div class="bento-stat"><b style="color:var(--vf)">6</b><small>Passport Types</small></div>
+    <div class="bento-stat"><b style="color:var(--gold)">20+</b><small>Categories</small></div>
+  </div>
+</div>
+
+<!-- ROW 3 LEFT: Latest Review -->
+<div class="bento-box">
+  <div class="bento-label">WHAT BUYERS SAY</div>
+  <div style="color:var(--gold);font-size:9px;letter-spacing:1px;margin-bottom:4px">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+  <div class="bento-review" id="bentoReview">
+    &#8220;Photo consistency is remarkable. Every shot maintains identity across settings. The AI Passport with QR sealed the deal for our brand.&#8221;
+    <cite><b style="color:var(--t2)">@digitalmark_pro</b> &middot; Verified Buyer</cite>
+  </div>
+  <a class="bento-link" role="button" tabindex="0" onclick="document.querySelector('#bentoReviewsFull').scrollIntoView({behavior:'smooth',block:'start'})">All reviews &#8594;</a>
+</div>
+
+<!-- ROW 3 RIGHT: Trust Seals (compact row) -->
+<div class="bento-box">
+  <div class="bento-label">TRUST &amp; COMPLIANCE</div>
+  <div class="bento-seals">
+    <div class="bento-seal"><div class="ico gold sm">&#10003;</div> 100% Synthetic</div>
+    <div class="bento-seal"><div class="ico gold sm">&#9670;</div> Disclosure Req.</div>
+    <div class="bento-seal"><div class="ico gold sm">L</div> Commercial License</div>
+    <div class="bento-seal"><div class="ico gold sm">&#9670;</div> Legal Protection</div>
+  </div>
+</div>
+
+<!-- ROW 4 LEFT: Filter Tabs → Registry -->
+<div class="bento-box">
+  <div class="bento-label">BROWSE BY CATEGORY</div>
+  <div class="bento-filter-pills" id="bentoFilters"></div>
+</div>
+
+<!-- ROW 4 RIGHT: How It Works (3 steps) -->
+<div class="bento-box">
+  <div class="bento-label">HOW IT WORKS</div>
+  <div class="bento-steps">
+    <div class="bento-step">
+      <div class="bento-step-num">01</div>
+      <div class="bento-step-text"><b>Choose a persona</b><span>Browse by category, style, or niche.</span></div>
+    </div>
+    <div class="bento-step">
+      <div class="bento-step-num">02</div>
+      <div class="bento-step-text"><b>Get their AI Passport</b><span>Verified identity with biometrics and QR.</span></div>
+    </div>
+    <div class="bento-step">
+      <div class="bento-step-num">03</div>
+      <div class="bento-step-text"><b>Launch with content</b><span>Calendar, captions, and growth strategy.</span></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /.bento-grid -->
+
+<!-- FULL REGISTRY — scrolled to from bento -->
+<div class="sec"><div class="ctr"><div class="sh">
+<div class="sh-l">REGISTRY</div>
+<h2>Verified Personas</h2>
+<p>Every persona registered, verified, and documented. Browse by type.</p>
+</div>
+<div class="tabs" id="ctabs" style="margin-bottom:12px"></div>
+<div class="gg c4" id="catG"></div>
+</div></div>
+
+<!-- RANKINGS -->
+<div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l" data-i18n="lb_label">RANKINGS</div><h2 data-i18n="lb_title">Top Performing Creators</h2><p data-i18n="lb_desc">Top AI creators worldwide. Updated weekly.</p></div>
+<div class="gg c2"><div id="lbL"></div><div><p style="font-family:var(--d);font-size:15px;margin-bottom:8px" data-i18n="lb_resale">Resale Championship</p><p style="font-size:11px;color:var(--t2);margin-bottom:10px" data-i18n="lb_resale_desc">Exclusive personas can be resold. 15% commission.</p><div id="rsL"></div></div></div>
+</div></div>
+
+<!-- REVIEWS (full section) -->
+<div class="sec" id="bentoReviewsFull"><div class="ctr">
+<div class="sh" style="text-align:center"><h2 data-i18n="rev_title">What Buyers Say</h2></div>
+<div class="gg c3" id="revG"></div>
+</div></div>
+
+<!-- TRUST & COMPLIANCE (full section) -->
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><div class="sh-l" data-i18n="trust_label">TRANSPARENCY</div><h2 data-i18n="trust_title">Trust &amp; Compliance</h2><p style="max-width:480px;margin:0 auto" data-i18n="trust_desc">Built for legitimacy. Every package designed for full platform compliance.</p></div>
+<div class="gg c4" id="trustG"></div>
+</div></div>
+
+<!-- FAQ -->
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><h2 data-i18n="faq_title">FAQ</h2></div>
+<div style="max-width:580px;margin:12px auto 0" id="faqG"></div>
+</div></div>
+
+<!-- FINAL CTA -->
+<div class="sec" style="text-align:center"><div class="ctr">
+<div class="cseal"><span class="cseal-in">PV</span></div>
+<h2 style="font-family:var(--d);font-size:32px;letter-spacing:-.5px" data-i18n="cta_title">Get Started</h2>
+<p style="font-size:12px;color:var(--t2);margin:6px 0 16px" data-i18n="cta_desc">Browse the registry. Find your persona. Get their verified passport.</p>
+<button class="nc p" style="padding:12px 28px;font-size:13px;cursor:pointer" onclick="document.querySelector('#catG').scrollIntoView({behavior:'smooth',block:'start'})">Explore the Registry</button>
+</div></div>
+
+<div style="max-width:560px;margin:20px auto;padding:24px;text-align:center">
+<p style="font-size:9px;color:var(--t4);line-height:1.9;letter-spacing:.2px">All identities are AI-generated synthetic characters. No real individuals depicted. Synthetic origin verified through Persona Vault Certification Authority. Commercial license included with all passport tiers. AI disclosure required on all platforms per applicable regulations.</p>
+</div>
+<footer><div class="ctr"><div class="foot"><span>&#169; 2026 Persona Vault &middot; AI-generated synthetic identities &middot; Verified origin &middot; QR traceable</span><span><a href="#">Terms</a><a href="#">Privacy</a><a href="#">License</a><a href="#">Compliance</a><a href="#">Blacklist</a></span></div></div></footer>
+</div>
+<div class="pv-page" id="page-passport" aria-label="AI Passport page">
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center">
+<div class="sh-num">00</div><div class="sh-l">IDENTITY SYSTEM</div>
+<h2>AI Passport</h2>
+<p style="max-width:520px;margin:0 auto">Every AI persona receives a unique passport. QR verification, biometric data, zodiac, traits, platform links. Tap to open.</p>
+</div>
+<div style="display:flex;justify-content:center;margin:40px 0 16px"><div id="passportDemo"></div></div>
+<p style="text-align:center;font-size:9px;color:var(--t3);margin-bottom:36px">Tap passport to flip between cover and inner page. Each passport contains a unique scannable QR code.</p>
+<div class="sh" style="text-align:center;margin-top:48px"><div class="sh-l">PASSPORT TYPES</div><h2 style="font-size:clamp(20px,2.5vw,28px)">6 Passport Categories</h2></div>
+<div class="pp-showcase" id="ppTypes"></div>
+</div></div>
+
+<!-- NEW: PASSPORT ECONOMICS -->
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><div class="sh-l">PASSPORT ECONOMICS</div><h2>Revenue Per Passport</h2><p style="max-width:520px;margin:0 auto">Every passport generates recurring revenue through verification fees, licensing, and marketplace transactions.</p></div>
+<div class="econ-grid">
+<div class="econ-card"><b style="color:var(--ac)">$12</b><small>AVG REVENUE PER PASSPORT / MONTH</small><p style="font-size:10px;color:var(--t2);margin-top:8px">Verification API calls, QR scans, license renewals</p></div>
+<div class="econ-card"><b style="color:var(--gold)">$144</b><small>ANNUAL REVENUE PER PASSPORT</small><p style="font-size:10px;color:var(--t2);margin-top:8px">Recurring SaaS model with 92% gross margin</p></div>
+<div class="econ-card"><b style="color:var(--vf)">&mdash;</b><small>ACTIVE PASSPORTS</small><p style="font-size:10px;color:var(--t2);margin-top:8px">Launching 2026</p></div>
+<div class="econ-card"><b style="color:var(--diamond)">$607K</b><small>PROJECTED ARR</small><p style="font-size:10px;color:var(--t2);margin-top:8px">Based on current passport count &times; $144/yr</p></div>
+</div>
+<div class="econ-grid" style="margin-top:16px">
+<div class="econ-card"><div class="ico gold" style="margin:0 auto 8px;width:32px;height:32px;font-size:10px">&#9670;</div><b style="font-size:14px">Verification Fees</b><p style="font-size:10px;color:var(--t2);margin-top:6px">$0.02 per API call. Platforms pay to verify synthetic origin. 50M+ projected calls/year.</p></div>
+<div class="econ-card"><div class="ico gold" style="margin:0 auto 8px;width:32px;height:32px;font-size:10px">L</div><b style="font-size:14px">License Revenue</b><p style="font-size:10px;color:var(--t2);margin-top:6px">Annual license renewal $49-199/passport. Commercial rights, brand deals eligibility.</p></div>
+<div class="econ-card"><div class="ico gold" style="margin:0 auto 8px;width:32px;height:32px;font-size:10px">%</div><b style="font-size:14px">Marketplace Take</b><p style="font-size:10px;color:var(--t2);margin-top:6px">30-50% commission on persona sales. $49-$1,299 price range. Average order $247.</p></div>
+<div class="econ-card"><div class="ico gold" style="margin:0 auto 8px;width:32px;height:32px;font-size:10px">&#9733;</div><b style="font-size:14px">Premium Tiers</b><p style="font-size:10px;color:var(--t2);margin-top:6px">Gold/Diamond/Obsidian upgrades $199-999. Priority verification, enhanced features.</p></div>
+</div>
+</div></div>
+
+<!-- NEW: PASSPORT LIFECYCLE -->
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><div class="sh-l">PASSPORT LIFECYCLE</div><h2>From Creation to Monetization</h2><p style="max-width:520px;margin:0 auto">Every AI passport follows a structured lifecycle from initial creation through full commercial deployment.</p></div>
+<div class="lc-timeline">
+<div class="lc-step active"><div class="lc-dot"></div><b>1. Submit</b><p>Upload AI persona with photos, bio, and identity data</p></div>
+<div class="lc-step active"><div class="lc-dot"></div><b>2. Verify</b><p>Synthetic origin check, face embedding, uniqueness scan</p></div>
+<div class="lc-step active"><div class="lc-dot"></div><b>3. Issue</b><p>Passport generated with QR code, biometrics, Creator ID</p></div>
+<div class="lc-step"><div class="lc-dot"></div><b>4. Deploy</b><p>Launch on platforms with content calendar and growth strategy</p></div>
+<div class="lc-step"><div class="lc-dot"></div><b>5. Grow</b><p>Hit follower milestones, earn tier upgrades and cash rewards</p></div>
+<div class="lc-step"><div class="lc-dot"></div><b>6. Monetize</b><p>Brand deals, resale, licensing revenue, creator commissions</p></div>
+</div>
+<div style="margin-top:24px;padding:16px;background:var(--s1);border-radius:var(--r2);border:1px solid rgba(255,255,255,.04)">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;text-align:center">
+<div><b style="font-family:var(--d);font-size:18px;color:var(--vf)">48h</b><p style="font-size:9px;color:var(--t3)">Average verification time</p></div>
+<div><b style="font-family:var(--d);font-size:18px;color:var(--ac)">97%</b><p style="font-size:9px;color:var(--t3)">Approval rate</p></div>
+<div><b style="font-family:var(--d);font-size:18px;color:var(--gold)">6 months</b><p style="font-size:9px;color:var(--t3)">Avg time to Gold tier</p></div>
+<div><b style="font-family:var(--d);font-size:18px;color:var(--diamond)">$2,340</b><p style="font-size:9px;color:var(--t3)">Avg creator earnings at 12mo</p></div>
+</div>
+</div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><div class="sh-l">TECHNOLOGY</div><h2>AI Identity Infrastructure</h2><p style="max-width:520px;margin:0 auto">Every persona protected by 6 layers of identity verification</p></div>
+<div class="gg c3" style="margin-top:24px">
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">FE</div><b style="font-size:13px;display:block;margin-bottom:4px">Face Embedding</b><p style="font-size:10px;color:var(--t2);line-height:1.5">512-dimensional face vector. ArcFace neural network maps facial identity into mathematical space.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">512-dim</span><span class="tg tg-d">ArcFace</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">DD</div><b style="font-size:13px;display:block;margin-bottom:4px">Drift Detection</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Real-time identity monitoring. Every new photo compared against baseline. Score 0-100.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Real-time</span><span class="tg tg-d">0-100</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">VD</div><b style="font-size:13px;display:block;margin-bottom:4px">Voice DNA</b><p style="font-size:10px;color:var(--t2);line-height:1.5">256-dimensional speaker embedding. Unique voice profile with collision detection across entire database.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">256-dim</span><span class="tg tg-d">Unique</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">DS</div><b style="font-size:13px;display:block;margin-bottom:4px">Digital Signature</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Ed25519 cryptographic signature on every piece of content. Publicly verifiable, tamper-evident.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Ed25519</span><span class="tg tg-d">SHA-256</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">SS</div><b style="font-size:13px;display:block;margin-bottom:4px">Shadow Simulation</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Preview content impact before posting. Predicted drift, quality score, consistency check.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Pre-post</span><span class="tg tg-d">Preview</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">RE</div><b style="font-size:13px;display:block;margin-bottom:4px">Reputation Engine</b><p style="font-size:10px;color:var(--t2);line-height:1.5">5-component score: drift history, content quality, consistency, owner track record, maturity.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">5 factors</span><span class="tg tg-d">Scored</span></div></div></div>
+</div>
+<div style="max-width:520px;margin:28px auto 0;padding:20px;background:var(--s1);border-radius:var(--r2);border:1px solid rgba(255,255,255,.04)">
+<div style="text-align:center;margin-bottom:14px"><span style="font-size:9px;font-weight:600;letter-spacing:2px;color:var(--t3)">LIVE DEMO</span><h3 style="font-family:var(--d);font-size:18px;margin-top:4px">Drift Analysis</h3></div>
+<div style="display:flex;gap:12px;align-items:center;margin-bottom:14px"><img src="https://i.pravatar.cc/48?img=47" loading="lazy" decoding="async" style="width:44px;height:44px;border-radius:50%;border:2px solid var(--ac)"><div><b style="font-size:13px">NOVA-7</b><div style="font-size:10px;color:var(--t2)">Baseline: 200 photos &middot; 120-day calendar</div></div></div>
+<button class="ucta gold" onclick="runDrift()" style="width:100%;padding:10px;font-size:11px" id="driftBtn">&#9654; Run Drift Analysis</button>
+<div id="driftR" style="display:none;margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:8px;color:var(--t3);letter-spacing:1.5px;font-weight:600">DRIFT SCORE</span><span id="driftV" style="font-family:var(--d);font-size:24px;font-weight:700"></span></div><div class="id-trk" style="margin-bottom:10px"><div class="id-fl" id="driftBar" style="width:0"></div></div><div id="driftC"></div><div id="driftX" style="margin-top:10px;padding:8px;border-radius:6px;text-align:center;font-size:11px"></div></div>
+</div>
+</div></div>
+</div>
+<div class="pv-page" id="page-packs" aria-label="Packs page">
+<div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l">BUNDLES &amp; PACKS</div><h2>Persona Packages</h2><p>Coordinated content networks, mega packs, drama storylines, add-ons, and localized packs.</p></div>
+<div class="tabs" style="margin-bottom:16px">
+<button class="tab on" onclick="showSub(this,'bundles')">Bundles</button>
+<button class="tab" onclick="showSub(this,'mega')">Mega Packs</button>
+<button class="tab" onclick="showSub(this,'drama')">Drama Packs</button>
+<button class="tab" onclick="showSub(this,'addons')">Add-ons</button>
+<button class="tab" onclick="showSub(this,'niche')">Industry</button>
+<button class="tab" onclick="showSub(this,'country')">Localized</button>
+</div>
+<div id="sub-bundles"><p style="font-size:12px;color:var(--t2);margin-bottom:12px">Coordinated content networks. Cross-following, shared stories, synchronized calendars. Save 25-50%.</p><div class="gg c3" id="bunG"></div></div>
+<div id="sub-mega" style="display:none"><p style="font-size:12px;color:var(--t2);margin-bottom:12px">4-5 interconnected accounts. Shared storylines, coordinated calendars, cross-engagement strategies.</p><div class="gg c3" id="megaG"></div></div>
+<div id="sub-drama" style="display:none"><div class="gg c3" id="dramaG"></div></div>
+<div id="sub-addons" style="display:none"><div class="gg c4" id="addonsG"></div></div>
+<div id="sub-niche" style="display:none"><div class="gg c4" id="nicheG"></div></div>
+<div id="sub-country" style="display:none"><div class="gg c4" id="countryG"></div></div>
+</div></div>
+</div>
+<div class="pv-page" id="page-verify" aria-label="Verify page">
+<div class="sec"><div class="ctr">
+<div style="max-width:520px;margin:0 auto 24px;text-align:center">
+<p style="font-size:11px;color:var(--t2);line-height:1.7">Verification is how platforms and users confirm that an AI persona is registered, licensed, and synthetic-origin certified. Every passport in our registry is publicly queryable.</p>
+</div>
+<div class="sh" style="text-align:center"><div class="sh-l">VERIFICATION</div><h2>Verify Any AI Passport</h2><p style="max-width:480px;margin:0 auto">Enter a Passport ID or scan a QR code. Our database instantly confirms synthetic origin, creator tier, and license status.</p></div>
+<div style="max-width:440px;margin:24px auto 0">
+<div style="display:flex;gap:6px;margin-bottom:16px">
+<input id="verifyInput" placeholder="Enter Passport ID (e.g. PV-2026-00001)" aria-label="Passport ID for verification" style="flex:1;padding:12px 14px;border-radius:var(--r);background:var(--s2);border:1px solid var(--s3);color:var(--tx);font-size:16px;outline:none;font-family:var(--f);transition:border-color .2s" onfocus="this.style.borderColor='var(--ac)'" onblur="this.style.borderColor='var(--s3)'">
+<button class="nc p" onclick="verifyPassport()" style="padding:12px 20px;flex-shrink:0">Verify</button>
+</div>
+<div id="verifyResult" style="display:none" aria-live="polite"></div>
+<div style="text-align:center;margin-top:12px"><p style="font-size:9px;color:var(--t3)">Try: PV-2026-00001 &middot; PV-2026-00005 &middot; PV-2026-00009</p></div>
+</div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><div class="sh-l">FOR PLATFORMS</div><h2>Verify AI Content on Your Platform</h2><p style="max-width:520px;margin:0 auto">Every AI Passport in our registry is queryable. Platforms can verify synthetic origin of any registered persona via Passport ID or QR scan.</p></div>
+<div class="gg c3" style="margin-top:24px">
+<div class="uc vis" style="text-align:center;padding:24px 16px"><div style="width:48px;height:48px;border-radius:50%;border:1.5px solid var(--acB);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:16px;color:var(--ac)">&#128269;</div><b style="font-size:13px">ID Lookup</b><p style="font-size:10px;color:var(--t2);margin-top:6px;line-height:1.5">Query any PV-2026-XXXXX to get full identity data: synthetic origin, creator tier, license status.</p></div>
+<div class="uc vis" style="text-align:center;padding:24px 16px"><div style="width:48px;height:48px;border-radius:50%;border:1.5px solid var(--vfB);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:16px;color:var(--vf)">QR</div><b style="font-size:13px">QR Scan</b><p style="font-size:10px;color:var(--t2);margin-top:6px;line-height:1.5">Each passport has a unique QR code linking to its verification page. Scan from any camera.</p></div>
+<div class="uc vis" style="text-align:center;padding:24px 16px"><div style="width:48px;height:48px;border-radius:50%;border:1.5px solid var(--goldB);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:16px;color:var(--gold)">&#9670;</div><b style="font-size:13px">Blacklist Check</b><p style="font-size:10px;color:var(--t2);margin-top:6px;line-height:1.5">Check if a persona has been blacklisted for fraud, manipulation, or license violation.</p></div>
+</div>
+<div style="text-align:center;margin-top:24px;padding:20px;border-radius:var(--r);background:var(--s1);border:1px solid rgba(255,255,255,.04);max-width:500px;margin-left:auto;margin-right:auto">
+<p style="font-size:11px;color:var(--t2);margin-bottom:8px">Interested in integrating Persona Vault verification?</p>
+<div style="display:flex;gap:8px;justify-content:center">
+<span style="padding:6px 14px;border-radius:var(--r3);background:var(--acL);border:1px solid var(--acB);font-size:10px;color:var(--ac);font-weight:600">Verify API &mdash; Q3 2026</span>
+<span style="padding:6px 14px;border-radius:var(--r3);background:var(--s2);border:1px solid var(--s3);font-size:10px;color:var(--t3)">Bulk Verify &mdash; Q4 2026</span>
+</div>
+<p style="font-size:8px;color:var(--t4);margin-top:8px">legal@personavault.com</p>
+</div>
+</div></div>
+</div>
+<div class="pv-page" id="page-earn" aria-label="Earn page">
+<div class="sec"><div class="ctr">
+<div class="eh"><h3>List Your Persona.<br><span>Earn Forever.</span></h3><p style="font-size:12px;color:var(--t2);max-width:480px;margin:0 auto">List your AI persona. Get verified. Earn from every sale. Top creators earn Gold passports, real cash rewards, and join the PV team.</p></div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="tabs" style="margin-bottom:16px">
+<button class="tab on" onclick="showSub(this,'earn-contribute')">Contribute</button>
+<button class="tab" onclick="showSub(this,'earn-sell')">Sell</button>
+<button class="tab" onclick="showSub(this,'earn-create')">Create</button>
+<button class="tab" onclick="showSub(this,'earn-brands')">Brand Deals</button>
+<button class="tab" onclick="showSub(this,'earn-refer')">Refer</button>
+<button class="tab" onclick="showSub(this,'earn-learn')">Learn</button>
+</div>
+<div id="sub-earn-contribute">
+<div class="sh"><div class="sh-l">MICRO-CONTRIBUTIONS</div><h2>Contribute &amp; Earn</h2><p>Upload photos, write captions, translate content. Earn royalties per sold package.</p></div>
+<div class="gg c4" id="microG"></div>
+</div>
+<div id="sub-earn-sell" style="display:none">
+<div class="sh"><div class="sh-l">ASSET MARKETPLACE</div><h2>Sell Individual Assets</h2><p>Sell standalone packs. Keep 75-80%.</p></div>
+<div class="gg c4" id="assetG"></div>
+</div>
+<div id="sub-earn-create" style="display:none">
+<div class="sh"><div class="sh-l">CREATOR TRACK</div><h2>Build &amp; Sell Personas</h2><p>Certified creators earn the most. Sliding scale revenue share.</p></div>
+<div class="gg c3" id="creatorG"></div>
+</div>
+<div id="sub-earn-brands" style="display:none">
+<div class="sh"><div class="sh-l">BRAND PARTNERSHIPS</div><h2>Brand Deals</h2><p>Connect your persona with brands. Hit the follower threshold, unlock partnerships.</p></div>
+<div class="gg c3" id="brandG"></div>
+</div>
+<div id="sub-earn-refer" style="display:none">
+<div class="sh"><div class="sh-l">REFERRAL</div><h2>Spread the Word</h2><p>Every referral earns. Tiered rewards.</p></div>
+<div class="gg c3" id="refG"></div>
+</div>
+<div id="sub-earn-learn" style="display:none">
+<div class="sh"><div class="sh-l" data-i18n="cert_label">EDUCATION</div><h2 data-i18n="cert_title">Academy</h2></div>
+<div class="gg c3" id="certG"></div>
+<div style="margin-top:24px">
+<div class="sh"><div class="sh-l">COLLECTION</div><h2>Collect AI Personas</h2><p>Every persona is a collectible with rarity, stats, and achievements. Build your collection.</p></div>
+<div class="col-progress"><span style="font-size:9px;color:var(--t3);font-weight:600">YOUR COLLECTION</span><div class="col-progress-bar"><div class="col-progress-fill" style="width:12%;background:linear-gradient(90deg,var(--ac),var(--gold))"></div></div><span class="col-progress-text">3 / 28 collected</span></div>
+<div class="gg c4" id="collectGrid"></div>
+</div>
+<div style="margin-top:24px"><div class="sh"><div class="sh-l">DIGITAL CERTIFICATES</div><h2>Achievement Rewards</h2><p>Earn certificates as you collect, create, and grow.</p></div><div class="gg c3" id="certShowcase"></div></div>
+</div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l">CALCULATOR</div><h2>Estimate Your Earnings</h2><p>Sliding scale: more sales = higher commission. 50% base rising to 70% at volume.</p></div>
+<div class="calc" id="earnCalc">
+<div class="calc-row"><span class="calc-label">Personas listed</span><input type="range" class="calc-slider" id="calcPersonas" min="1" max="20" value="3" oninput="updateCalc()"><span class="calc-val" id="calcPVal">3</span></div>
+<div class="calc-row"><span class="calc-label">Avg. price ($)</span><input type="range" class="calc-slider" id="calcPrice" min="19" max="199" value="49" step="10" oninput="updateCalc()"><span class="calc-val" id="calcPrVal">$49</span></div>
+<div class="calc-row"><span class="calc-label">Sales / month</span><input type="range" class="calc-slider" id="calcSales" min="1" max="100" value="10" oninput="updateCalc()"><span class="calc-val" id="calcSVal">10</span></div>
+<div class="calc-result"><small>Estimated monthly earnings</small><b id="calcTotal">$245</b><div class="calc-breakdown"><div><b id="calcYou">$245</b><small>you earn</small></div><div><b id="calcPV">$245</b><small>PV fee</small></div><div><b id="calcRate">50%</b><small>your rate</small></div></div></div>
+</div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l">DASHBOARD PREVIEW</div><h2>Your Creator Dashboard</h2><p>Track sales, manage passports, view payouts.</p></div>
+<div class="dash"><div class="dash-top"><span class="dash-dot r"></span><span class="dash-dot y"></span><span class="dash-dot g"></span><span style="font-size:10px;color:var(--t3);margin-left:8px">dashboard.personavault.com</span></div><div class="dash-body"><div class="dash-stat"><div class="dash-stat-card"><b style="color:var(--ac)">$2,340</b><small>TOTAL EARNINGS</small></div><div class="dash-stat-card"><b>47</b><small>SALES</small></div><div class="dash-stat-card"><b>3</b><small>PERSONAS</small></div><div class="dash-stat-card"><b style="color:var(--gold)">&#9733;</b><small>GOLD TIER</small></div></div><div class="dash-chart" id="dashChart"></div><div class="dash-pp-list"><div style="font-size:8px;color:var(--t3);letter-spacing:1px;margin-bottom:4px;font-weight:600">YOUR PASSPORTS</div><div class="dash-pp-row"><span style="color:var(--vf)">&#10003;</span><b>NOVA-7</b><span style="margin-left:auto;color:var(--ac)">$890</span><span style="font-size:8px;color:var(--t3);margin-left:6px">18 sales</span></div><div class="dash-pp-row"><span style="color:var(--vf)">&#10003;</span><b>Mira Sol</b><span style="margin-left:auto;color:var(--ac)">$1,080</span><span style="font-size:8px;color:var(--t3);margin-left:6px">20 sales</span></div><div class="dash-pp-row"><span style="color:var(--vf)">&#10003;</span><b>KyoBot-X</b><span style="margin-left:auto;color:var(--ac)">$370</span><span style="font-size:8px;color:var(--t3);margin-left:6px">9 sales</span></div></div></div></div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l">REWARD TIERS</div><h2>Passport Achievement System</h2><p>Hit follower milestones across platforms. Earn real rewards. Manipulation = permanent blacklist.</p></div>
+<div class="gg c5" style="grid-template-columns:repeat(5,1fr)" id="tierGrid">
+<div class="tier-card"><div class="tier-icon bronze">&#9733;</div><b style="font-size:13px">Bronze</b><div class="tier-req">1,000 followers</div><div class="tier-rewards">Digital certificate<br>Bronze passport badge</div><div class="tier-money" style="color:#b4783c">Badge</div></div>
+<div class="tier-card"><div class="tier-icon silver">&#9733;</div><b style="font-size:13px">Silver</b><div class="tier-req">10,000 followers</div><div class="tier-rewards">Digital certificate<br>Silver passport upgrade<br>Featured in registry</div><div class="tier-money" style="color:var(--silver)">Featured</div></div>
+<div class="tier-card"><div class="tier-icon gold">&#9733;</div><b style="font-size:13px">Gold</b><div class="tier-req">20,000+ followers</div><div class="tier-rewards">Gold passport<br>$200 cash bonus<br>Priority verification</div><div class="tier-money" style="color:var(--gold)">$200</div></div>
+<div class="tier-card"><div class="tier-icon diamond">&#9733;</div><b style="font-size:13px">Diamond</b><div class="tier-req">100,000+ followers</div><div class="tier-rewards">Diamond passport<br>$1,000 cash bonus<br>PV Team invitation</div><div class="tier-money" style="color:var(--diamond)">$1,000</div></div>
+<div class="tier-card" style="border-color:rgba(100,100,140,.15)"><div class="tier-icon obsidian">&#9733;</div><b style="font-size:13px">Obsidian</b><div class="tier-req">500,000+ followers</div><div class="tier-rewards">Obsidian passport<br>$5,000 cash bonus<br>Co-founder advisory</div><div class="tier-money" style="color:#9a9abe">$5,000</div></div>
+</div>
+<div style="padding:12px;background:rgba(200,60,60,.03);border:1px solid rgba(200,60,60,.06);border-radius:var(--r);margin-top:16px;text-align:center"><p style="font-size:9px;color:#c06060;font-weight:600;margin-bottom:2px">&#9888; ANTI-FRAUD POLICY</p><p style="font-size:9px;color:var(--t3)">Follower manipulation is automatically detected. Violators permanently lose passport license.</p></div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l">CREATOR TOOLS</div><h2>Studio</h2></div>
+<div class="gg c3">
+<div class="uc vis"><div class="uc-h"><div class="um"><div class="unm">Feed Preview</div><div class="usub">See your profile before posting</div></div></div><div class="ugr" style="margin:8px 14px;border-radius:var(--r)"><div><img src="https://picsum.photos/seed/n1a/100" loading="lazy" decoding="async" class="ld"></div><div><img src="https://picsum.photos/seed/n1b/100" loading="lazy" decoding="async" class="ld"></div><div><img src="https://picsum.photos/seed/n1c/100" loading="lazy" decoding="async" class="ld"></div><div><img src="https://picsum.photos/seed/n1d/100" loading="lazy" decoding="async" class="ld"></div><div><img src="https://picsum.photos/seed/n1e/100" loading="lazy" decoding="async" class="ld"></div><div><img src="https://picsum.photos/seed/n1f/100" loading="lazy" decoding="async" class="ld"></div></div><div style="padding:6px 14px 12px"><div style="padding:6px 8px;background:var(--s2);border-radius:6px;font-size:10px;color:var(--t2)"><span style="color:var(--ac);font-weight:600">AI:</span> Post 6-8pm. Carousels get 2.3x engagement.</div></div></div>
+<div class="uc vis"><div class="uc-h"><div class="um"><div class="unm">Analytics Dashboard</div><div class="usub">Growth &middot; Engagement &middot; Revenue</div></div></div><div class="ust"><div><b>2.4K</b><small>followers</small></div><div><b>4.8%</b><small>engage</small></div><div><b>$340</b><small>revenue</small></div></div><div style="padding:8px 14px 12px"><div class="udl">Best time: Tue/Thu 7pm EST</div><div class="udl">Top hashtag: #aiart - 12.4% ER</div><div class="udl">Growth: +320/week</div></div></div>
+<div class="uc vis"><div class="uc-h"><div class="um"><div class="unm">Profile Analyzer</div><div class="usub">AI audit for any IG handle</div></div></div><div style="padding:8px 14px"><p style="font-size:11px;color:var(--t2);margin-bottom:6px">Paste any handle for AI growth recommendations.</p><div style="display:flex;gap:4px"><input placeholder="@username" style="flex:1;padding:6px 8px;border-radius:6px;background:var(--s2);border:1px solid var(--s3);color:var(--tx);font-size:16px;outline:none;font-family:var(--f)"><button class="ucta cool">Analyze</button></div></div></div>
+</div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><div class="sh-l" data-i18n="chat_label">DM PERSONALITY</div><h2 data-i18n="chat_title">Chat Demo</h2></div>
+<div class="cbox" style="margin-top:16px"><div class="chd"><img src="https://i.pravatar.cc/60?img=47" loading="lazy" decoding="async"><div><b>nova.seven</b><small data-i18n="chat_status">Active now</small></div></div><div class="cms" id="chatM"><div class="cm l" data-i18n="chat_greeting">Hey! What brings you here?</div></div><div class="cqr" id="chatQ"></div></div>
+</div></div>
+</div>
+</div>
+</main>
+</div>
+<div class="sv-ov" id="svOv" role="dialog" aria-modal="true" aria-label="Story viewer"><button class="sv-x" onclick="closeSV()" aria-label="Close story viewer">&#10005;</button><div class="sv-u" id="svU"></div><div class="svb" id="svB"></div><img class="sv-img" id="svI" src="" decoding="async"></div>
+<div class="mo" id="mo" role="dialog" aria-modal="true" aria-label="Persona details"><div class="md" id="mdC"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="/src/js/main.js"></script>
+</body></html>
