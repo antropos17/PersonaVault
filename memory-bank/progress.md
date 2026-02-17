@@ -7,9 +7,10 @@
 - **UX Step 4:** Bento grid dashboard (2026 pattern)
 - **UX Step 5:** Semantic HTML, ARIA, keyboard nav, color-as-action audit
 - **Tech Step 1:** Project scaffold (vite, license, editorconfig, readme, simplify command)
+- **Tech Step 2:** Design tokens extracted with semantic aliases
 
 ## In Progress
-- **Tech Step 2:** Design tokens
+- **Tech Step 3:** Split HTML into modules
 
 ## Next
-- **Tech Step 3:** Split HTML into modules
+- **Tech Step 4:** base.css — resets, layout, grids, sections, responsive
