@@ -16,7 +16,8 @@
       "Bash(npx puppeteer:*)",
       "Bash(node:*)",
       "Bash(npm install:*)",
-      "Bash(start \"\" \"X:/Future/Persona Vault/persona-vault-v15-a11y.html\")"
+      "Bash(start \"\" \"X:/Future/Persona Vault/persona-vault-v15-a11y.html\")",
+      "Bash(git rm:*)"
     ]
   }
 }
