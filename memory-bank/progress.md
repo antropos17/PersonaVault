@@ -13,8 +13,10 @@
 
 - **Tech Step 4:** base.css — resets, layout, grids, sections, bento grid, a11y, responsive
 
+- **Tech Step 5:** nav.css — top bar, sub nav, mobile menu, search, language switcher
+
 ## In Progress
-- **Tech Step 5:** nav.css — top nav, sub-nav, mobile menu
+- **Tech Step 6:** cards.css + components.css + passport.css
 
 ## Next
-- **Tech Step 6:** cards.css + components.css + passport.css
+- **Tech Step 7:** data.js — all arrays as ES module exports

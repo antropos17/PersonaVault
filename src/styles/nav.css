@@ -1,0 +1,145 @@
+/* nav.css — Top bar, sub nav, mobile menu, language switcher */
+
+/* ===== TOP NAV ===== */
+.tnav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(12, 12, 14, .96);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, .04);
+  height: 52px; display: flex; align-items: center; padding: 0 var(--space-6);
+}
+.tnav-in {
+  max-width: 1280px; margin: 0 auto; width: 100%;
+  display: flex; align-items: center; gap: var(--space-4);
+}
+
+/* ===== LOGO ===== */
+.logo { display: flex; align-items: center; gap: var(--space-2); text-decoration: none; flex-shrink: 0 }
+.logo-m {
+  width: 34px; height: 34px; border-radius: 6px; border: 1.5px solid var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 15px; color: var(--primary);
+}
+.logo-t { font-family: var(--font-display); font-size: 17px; letter-spacing: .5px; color: var(--on-surface) }
+
+/* ===== NAV SEARCH ===== */
+.nsr { flex: 1; max-width: 240px; position: relative }
+.nsr input {
+  width: 100%; padding: var(--space-2) 14px var(--space-2) 34px;
+  border-radius: var(--r3); background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(255, 255, 255, .08); color: var(--on-surface);
+  font-size: var(--text-base); outline: none; font-family: var(--font-body);
+  transition: border-color var(--duration-short);
+}
+.nsr input:focus { border-color: rgba(255, 255, 255, .15) }
+.nsr input::placeholder { color: var(--on-surface-subtle) }
+.nsr .ic { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); font-size: 11px; color: var(--on-surface-subtle) }
+
+/* ===== NAV RIGHT ===== */
+.nav-r { margin-left: auto; display: flex; gap: var(--space-2); align-items: center }
+
+/* ===== NAV CTA BUTTONS ===== */
+.nc {
+  padding: var(--space-2) 18px; font-weight: 600; font-size: var(--text-sm);
+  border: none; border-radius: var(--r3); cursor: pointer;
+  letter-spacing: .3px; font-family: var(--font-body); transition: var(--duration-short);
+}
+.nc.p { background: var(--primary); color: #fff }
+.nc.p:hover { background: var(--primary-hover) }
+.nc.s { background: transparent; border: 1px solid var(--border); color: var(--on-surface) }
+.nc.s:hover { border-color: var(--on-surface-subtle) }
+
+/* ===== HAMBURGER ===== */
+.ham {
+  display: none; background: none; border: none; cursor: pointer;
+  flex-direction: column; gap: 4px; padding: 6px;
+}
+.ham span { display: block; width: 18px; height: 1.5px; background: var(--on-surface); transition: .3s }
+.ham.on span:nth-child(1) { transform: rotate(45deg) translate(3px, 3px) }
+.ham.on span:nth-child(2) { opacity: 0 }
+.ham.on span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px) }
+
+/* ===== LANGUAGE SWITCHER ===== */
+.lang-sw { display: flex; border: 1px solid rgba(255, 255, 255, .1); border-radius: var(--r3); overflow: hidden }
+.lang-opt {
+  padding: 6px var(--space-3); font-size: 11px; font-weight: 600; letter-spacing: .5px;
+  background: transparent; border: none; color: var(--on-surface-subtle);
+  cursor: pointer; font-family: var(--font-body); transition: .15s;
+}
+.lang-opt.on { background: var(--primary); color: #000 }
+
+/* ===== SUB NAV ===== */
+.snav {
+  position: fixed; top: 52px; left: 0; right: 0; z-index: 999;
+  background: rgba(12, 12, 14, .92);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, .03);
+  transform: translateZ(0); -webkit-transform: translateZ(0);
+}
+.snav-s {
+  display: flex; overflow-x: auto; scrollbar-width: none;
+  padding: 0 var(--space-6); max-width: 1280px; margin: 0 auto;
+}
+.snav-s::-webkit-scrollbar { display: none }
+
+.sna {
+  padding: 10px var(--space-4); font-size: var(--text-base); font-weight: 500;
+  color: var(--on-surface-subtle); white-space: nowrap;
+  border-bottom: 1.5px solid transparent; transition: .15s;
+  text-decoration: none; letter-spacing: .2px; border-radius: 4px;
+}
+.sna:hover { color: var(--on-surface-muted); background: rgba(255, 255, 255, .03) }
+.sna.on { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600 }
+
+/* ===== MOBILE MENU ===== */
+.mob {
+  display: none; position: fixed; inset: 0; z-index: 1100;
+  background: rgba(12, 12, 14, .98);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  padding: 64px 28px 28px; overflow-y: auto;
+}
+.mob.on { display: flex; flex-direction: column }
+.mob a {
+  display: block; padding: var(--space-3) 0; font-size: 15px; font-weight: 500;
+  color: var(--on-surface-muted); border-bottom: 1px solid rgba(255, 255, 255, .06);
+  text-decoration: none;
+}
+.mob a:hover { color: var(--primary) }
+.mob-x {
+  position: absolute; top: var(--space-4); right: var(--space-6);
+  background: none; border: none; color: var(--on-surface); font-size: 18px; cursor: pointer;
+}
+
+/* ===== LIGHT THEME ===== */
+[data-theme="light"] .tnav { background: rgba(245, 243, 240, .96) }
+[data-theme="light"] .snav { background: rgba(245, 243, 240, .92) }
+
+/* ===== RESPONSIVE: hover:none ===== */
+@media (hover: none) {
+  .sna:hover { color: var(--on-surface-subtle) }
+}
+
+/* ===== RESPONSIVE: pointer:coarse ===== */
+@media (pointer: coarse) {
+  .nc { min-height: 40px; display: inline-flex; align-items: center }
+  .sna { min-height: 40px; display: inline-flex; align-items: center }
+  .mob a { min-height: 44px; display: flex; align-items: center }
+}
+
+/* ===== RESPONSIVE: 800px ===== */
+@media (max-width: 800px) {
+  .nsr { display: none }
+  #passportCounter { display: none !important }
+  .ham { display: flex }
+}
+
+/* ===== RESPONSIVE: 550px ===== */
+@media (max-width: 550px) {
+  .mob { padding: 56px 20px 20px }
+  .mob a { padding: 14px 0; font-size: 16px }
+  .snav::after {
+    content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 40px;
+    background: linear-gradient(to right, transparent, rgba(12, 12, 14, .92));
+    pointer-events: none;
+  }
+}
