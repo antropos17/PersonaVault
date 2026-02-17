@@ -1,5 +1,18 @@
 {
+  "name": "persona-vault",
+  "version": "1.0.0",
+  "description": "AI Identity Infrastructure — Registry and verification for AI-generated personas",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "echo 'TODO: add linter'"
+  },
   "dependencies": {
     "puppeteer": "^24.37.3"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
   }
 }
