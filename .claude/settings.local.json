@@ -1,7 +1,22 @@
 {
   "permissions": {
     "allow": [
-      "Bash(claude mcp add context7 -- npx -y @upstash/context7-mcp@latest)"
+      "Bash(claude mcp add context7 -- npx -y @upstash/context7-mcp@latest)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(start \"\" \"X:/Future/Persona Vault/persona-vault-v15-bento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --screenshot=\"X:/Future/Persona Vault/screenshot-bento-desktop.png\" --window-size=1400,900 \"file:///X:/Future/Persona Vault/persona-vault-v15-bento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --screenshot=\"X:/Future/Persona Vault/screenshot-bento-mobile.png\" --window-size=390,844 \"file:///X:/Future/Persona Vault/persona-vault-v15-bento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --screenshot=\"X:/Future/Persona Vault/screenshot-bento-full.png\" --window-size=1400,2400 --virtual-time-budget=5000 \"file:///X:/Future/Persona Vault/persona-vault-v15-bento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --screenshot=\"X:/Future/Persona Vault/screenshot-bento-full2.png\" --window-size=1400,2400 --virtual-time-budget=8000 \"file:///X:/Future/Persona Vault/persona-vault-v15-bento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --dump-dom --virtual-time-budget=5000 \"file:///X:/Future/Persona Vault/persona-vault-v15-bento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --dump-dom --virtual-time-budget=5000 \"file:///X:/Future/Persona Vault/persona-vault-v15-hero.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless=new --disable-gpu --screenshot=\"X:/Future/Persona Vault/screenshot-bento-served.png\" --window-size=1400,2400 --timeout=10000 \"http://localhost:8765/persona-vault-v15-bento.html\")",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\" --headless --disable-gpu --screenshot=\"X:/Future/Persona Vault/screenshot-bento-wait.png\" --window-size=1400,2400 --virtual-time-budget=30000 --run-all-compositor-stages-before-draw \"http://localhost:8765/persona-vault-v15-bento.html\")",
+      "Bash(npx puppeteer:*)",
+      "Bash(node:*)",
+      "Bash(npm install:*)",
+      "Bash(start \"\" \"X:/Future/Persona Vault/persona-vault-v15-a11y.html\")"
     ]
   }
 }
