@@ -624,19 +624,11 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 <div class="sb-ov" id="sbOv" onclick="closeSb()"></div>
 <aside class="pv-sb" id="pvSb">
 <div class="sb-logo"><div class="logo-m">P</div><span>Persona Vault</span></div>
-<div class="sb-g">MAIN</div>
-<div class="sb-i active" data-page="dashboard" onclick="showPage('dashboard')"><span class="sb-ic">&#9670;</span>Dashboard</div>
-<div class="sb-i" data-page="registry" onclick="showPage('registry')"><span class="sb-ic">&#9783;</span>Registry</div>
+<div class="sb-i active" data-page="explore" onclick="showPage('explore')"><span class="sb-ic">&#9670;</span>Explore</div>
 <div class="sb-i" data-page="passport" onclick="showPage('passport')"><span class="sb-ic">&#9672;</span>AI Passport</div>
-<div class="sb-g">EXPLORE</div>
-<div class="sb-i" data-page="bundles" onclick="showPage('bundles')"><span class="sb-ic">&#9643;</span>Bundles &amp; Packs</div>
-<div class="sb-i" data-page="brands" onclick="showPage('brands')"><span class="sb-ic">&#9733;</span>Brand Deals</div>
-<div class="sb-g">INFRASTRUCTURE</div>
-<div class="sb-i" data-page="technology" onclick="showPage('technology')"><span class="sb-ic">&#11041;</span>Technology</div>
+<div class="sb-i" data-page="packs" onclick="showPage('packs')"><span class="sb-ic">&#9643;</span>Packs</div>
+<div class="sb-i" data-page="earn" onclick="showPage('earn')"><span class="sb-ic">&#9733;</span>Earn</div>
 <div class="sb-i" data-page="verify" onclick="showPage('verify')"><span class="sb-ic">&#10003;</span>Verify</div>
-<div class="sb-g">EARN</div>
-<div class="sb-i" data-page="creator" onclick="showPage('creator')"><span class="sb-ic">&#9673;</span>Creator Studio</div>
-<div class="sb-i" data-page="academy" onclick="showPage('academy')"><span class="sb-ic">&#9678;</span>Academy</div>
 </aside>
 <div class="pv-main">
 <div class="pv-top">
@@ -648,7 +640,7 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 
 </div></div>
 <div class="pv-content" id="pvContent">
-<div class="pv-page active" id="page-dashboard">
+<div class="pv-page active" id="page-explore">
 <div style="margin-bottom:8px"><h1 style="font-family:var(--d);font-size:clamp(22px,3vw,36px);font-weight:700;margin-bottom:6px">Every AI Identity Deserves a <span style="color:var(--ac)">Passport</span></h1>
 <p style="font-size:12px;color:var(--t2);max-width:500px;line-height:1.6">The world's first verification registry for AI-generated personas. Create, verify, collect, earn.</p></div>
 <div style="display:flex;gap:24px;flex-wrap:wrap;padding:16px 0">
@@ -672,21 +664,25 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 <span style="font-size:9px;padding:4px 10px;border-radius:var(--r3);background:var(--s1);color:var(--t3);border:1px solid var(--s2)">QR Verify API &mdash; Q3</span>
 </div>
 <div class="ticker" id="ticker"><div class="ticker-inner" id="tickerInner"></div></div>
+<div class="sec"><div class="ctr"><div class="sh">
+<div class="sh-l">REGISTRY</div>
+<h2>Verified Personas</h2>
+<p>Every persona registered, verified, and documented. Browse by type.</p>
+</div>
+<div class="tabs" id="ctabs" style="margin-bottom:12px"></div>
+<div class="gg c4" id="catG"></div>
+</div></div>
 <div class="sec"><div class="ctr">
 <div class="sh"><div class="sh-l">FEATURED</div><h2>Top Personas</h2><p>Exclusive and premium AI creators from our registry.</p></div>
 <div class="gg c4" id="featuredG"></div>
 </div></div>
 <div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l" data-i18n="lb_label">RANKINGS</div><h2 data-i18n="lb_title">Top Performing Creators</h2><p data-i18n="lb_desc">Top AI creators worldwide. Updated weekly.</p></div>
+<div class="gg c2"><div id="lbL"></div><div><p style="font-family:var(--d);font-size:15px;margin-bottom:8px" data-i18n="lb_resale">Resale Championship</p><p style="font-size:11px;color:var(--t2);margin-bottom:10px" data-i18n="lb_resale_desc">Exclusive personas can be resold. 15% commission.</p><div id="rsL"></div></div></div>
+</div></div>
+<div class="sec"><div class="ctr">
 <div class="sh" style="text-align:center"><h2 data-i18n="rev_title">What Buyers Say</h2></div>
 <div class="gg c3" id="revG"></div>
-</div></div>
-<div class="sec" style="text-align:center"><div class="ctr">
-<div class="cseal"><span class="cseal-in">PV</span></div>
-<h2 style="font-family:var(--d);font-size:32px;letter-spacing:-.5px" data-i18n="cta_title">Get Started</h2>
-<p style="font-size:12px;color:var(--t2);margin:6px 0 16px" data-i18n="cta_desc">List your persona. Get your passport. Start earning.</p>
-
-<a class="nc p" style="padding:10px 24px;font-size:11px;cursor:pointer" onclick="showPage('registry')" data-i18n="cta_browse">Browse Registry</a>
-<a class="nc p" style="padding:10px 24px;font-size:11px;cursor:pointer;background:var(--s2);color:var(--ac);border:1px solid var(--acB);margin-left:6px" onclick="showPage('creator')" data-i18n="cta_earn">Start Earning</a>
 </div></div>
 <div class="sec"><div class="ctr">
 <div class="sh" style="text-align:center"><div class="sh-l" data-i18n="trust_label">TRANSPARENCY</div><h2 data-i18n="trust_title">Trust &amp; Compliance</h2><p style="max-width:480px;margin:0 auto" data-i18n="trust_desc">Built for legitimacy. Every package designed for full platform compliance.</p></div>
@@ -696,24 +692,17 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 <div class="sh" style="text-align:center"><h2 data-i18n="faq_title">FAQ</h2></div>
 <div style="max-width:580px;margin:12px auto 0" id="faqG"></div>
 </div></div>
+<div class="sec" style="text-align:center"><div class="ctr">
+<div class="cseal"><span class="cseal-in">PV</span></div>
+<h2 style="font-family:var(--d);font-size:32px;letter-spacing:-.5px" data-i18n="cta_title">Get Started</h2>
+<p style="font-size:12px;color:var(--t2);margin:6px 0 16px" data-i18n="cta_desc">List your persona. Get your passport. Start earning.</p>
+<a class="nc p" style="padding:10px 24px;font-size:11px;cursor:pointer" onclick="showPage('passport')" data-i18n="cta_browse">View AI Passport</a>
+<a class="nc p" style="padding:10px 24px;font-size:11px;cursor:pointer;background:var(--s2);color:var(--ac);border:1px solid var(--acB);margin-left:6px" onclick="showPage('earn')" data-i18n="cta_earn">Start Earning</a>
+</div></div>
 <div style="max-width:560px;margin:20px auto;padding:24px;text-align:center">
 <p style="font-size:9px;color:var(--t4);line-height:1.9;letter-spacing:.2px">All identities are AI-generated synthetic characters. No real individuals depicted. Synthetic origin verified through Persona Vault Certification Authority. Commercial license included with all passport tiers. AI disclosure required on all platforms per applicable regulations.</p>
 </div>
 <footer><div class="ctr"><div class="foot"><span>&#169; 2026 Persona Vault &middot; AI-generated synthetic identities &middot; Verified origin &middot; QR traceable</span><span><a href="#">Terms</a><a href="#">Privacy</a><a href="#">License</a><a href="#">Compliance</a><a href="#">Blacklist</a></span></div></div></footer>
-</div>
-<div class="pv-page" id="page-registry">
-<div class="sec"><div class="ctr"><div class="sh">
-<div class="sh-num">02</div><div class="sh-l">REGISTRY</div>
-<h2>Verified Personas</h2>
-<p>Every persona registered, verified, and documented. Browse by type.</p>
-</div>
-<div class="tabs" id="ctabs" style="margin-bottom:12px"></div>
-<div class="gg c4" id="catG"></div>
-</div></div>
-<div class="sec"><div class="ctr">
-<div class="sh"><div class="sh-num">05</div><div class="sh-l" data-i18n="lb_label">RANKINGS</div><h2 data-i18n="lb_title">Top Performing Creators</h2><p data-i18n="lb_desc">Top AI creators worldwide. Updated weekly.</p></div>
-<div class="gg c2"><div id="lbL"></div><div><p style="font-family:var(--d);font-size:15px;margin-bottom:8px" data-i18n="lb_resale">Resale Championship</p><p style="font-size:11px;color:var(--t2);margin-bottom:10px" data-i18n="lb_resale_desc">Exclusive personas can be resold. 15% commission.</p><div id="rsL"></div></div></div>
-</div></div>
 </div>
 <div class="pv-page" id="page-passport">
 <div class="sec"><div class="ctr">
@@ -765,8 +754,25 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 </div>
 </div>
 </div></div>
+<div class="sec"><div class="ctr">
+<div class="sh" style="text-align:center"><div class="sh-l">TECHNOLOGY</div><h2>AI Identity Infrastructure</h2><p style="max-width:520px;margin:0 auto">Every persona protected by 6 layers of identity verification</p></div>
+<div class="gg c3" style="margin-top:24px">
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">FE</div><b style="font-size:13px;display:block;margin-bottom:4px">Face Embedding</b><p style="font-size:10px;color:var(--t2);line-height:1.5">512-dimensional face vector. ArcFace neural network maps facial identity into mathematical space.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">512-dim</span><span class="tg tg-d">ArcFace</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">DD</div><b style="font-size:13px;display:block;margin-bottom:4px">Drift Detection</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Real-time identity monitoring. Every new photo compared against baseline. Score 0-100.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Real-time</span><span class="tg tg-d">0-100</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">VD</div><b style="font-size:13px;display:block;margin-bottom:4px">Voice DNA</b><p style="font-size:10px;color:var(--t2);line-height:1.5">256-dimensional speaker embedding. Unique voice profile with collision detection across entire database.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">256-dim</span><span class="tg tg-d">Unique</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">DS</div><b style="font-size:13px;display:block;margin-bottom:4px">Digital Signature</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Ed25519 cryptographic signature on every piece of content. Publicly verifiable, tamper-evident.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Ed25519</span><span class="tg tg-d">SHA-256</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">SS</div><b style="font-size:13px;display:block;margin-bottom:4px">Shadow Simulation</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Preview content impact before posting. Predicted drift, quality score, consistency check.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Pre-post</span><span class="tg tg-d">Preview</span></div></div></div>
+<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">RE</div><b style="font-size:13px;display:block;margin-bottom:4px">Reputation Engine</b><p style="font-size:10px;color:var(--t2);line-height:1.5">5-component score: drift history, content quality, consistency, owner track record, maturity.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">5 factors</span><span class="tg tg-d">Scored</span></div></div></div>
 </div>
-<div class="pv-page" id="page-bundles">
+<div style="max-width:520px;margin:28px auto 0;padding:20px;background:var(--s1);border-radius:var(--r2);border:1px solid rgba(255,255,255,.04)">
+<div style="text-align:center;margin-bottom:14px"><span style="font-size:9px;font-weight:600;letter-spacing:2px;color:var(--t3)">LIVE DEMO</span><h3 style="font-family:var(--d);font-size:18px;margin-top:4px">Drift Analysis</h3></div>
+<div style="display:flex;gap:12px;align-items:center;margin-bottom:14px"><img src="https://i.pravatar.cc/48?img=47" loading="lazy" decoding="async" style="width:44px;height:44px;border-radius:50%;border:2px solid var(--ac)"><div><b style="font-size:13px">NOVA-7</b><div style="font-size:10px;color:var(--t2)">Baseline: 200 photos &middot; 120-day calendar</div></div></div>
+<button class="ucta gold" onclick="runDrift()" style="width:100%;padding:10px;font-size:11px" id="driftBtn">&#9654; Run Drift Analysis</button>
+<div id="driftR" style="display:none;margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:8px;color:var(--t3);letter-spacing:1.5px;font-weight:600">DRIFT SCORE</span><span id="driftV" style="font-family:var(--d);font-size:24px;font-weight:700"></span></div><div class="id-trk" style="margin-bottom:10px"><div class="id-fl" id="driftBar" style="width:0"></div></div><div id="driftC"></div><div id="driftX" style="margin-top:10px;padding:8px;border-radius:6px;text-align:center;font-size:11px"></div></div>
+</div>
+</div></div>
+</div>
+<div class="pv-page" id="page-packs">
 <div class="sec"><div class="ctr">
 <div class="sh"><div class="sh-l">BUNDLES &amp; PACKS</div><h2>Persona Packages</h2><p>Coordinated content networks, mega packs, drama storylines, add-ons, and localized packs.</p></div>
 <div class="tabs" style="margin-bottom:16px">
@@ -785,10 +791,20 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 <div id="sub-country" style="display:none"><div class="gg c4" id="countryG"></div></div>
 </div></div>
 </div>
-<div class="pv-page" id="page-brands">
+<div class="pv-page" id="page-verify">
 <div class="sec"><div class="ctr">
-<div class="sh"><div class="sh-l">BRAND PARTNERSHIPS</div><h2>Brand Deals</h2><p>Connect your persona with brands. Hit the follower threshold, unlock partnerships.</p></div>
-<div class="gg c3" id="brandG"></div>
+<div style="max-width:520px;margin:0 auto 24px;text-align:center">
+<p style="font-size:11px;color:var(--t2);line-height:1.7">Verification is how platforms and users confirm that an AI persona is registered, licensed, and synthetic-origin certified. Every passport in our registry is publicly queryable.</p>
+</div>
+<div class="sh" style="text-align:center"><div class="sh-l">VERIFICATION</div><h2>Verify Any AI Passport</h2><p style="max-width:480px;margin:0 auto">Enter a Passport ID or scan a QR code. Our database instantly confirms synthetic origin, creator tier, and license status.</p></div>
+<div style="max-width:440px;margin:24px auto 0">
+<div style="display:flex;gap:6px;margin-bottom:16px">
+<input id="verifyInput" placeholder="Enter Passport ID (e.g. PV-2026-00001)" style="flex:1;padding:12px 14px;border-radius:var(--r);background:var(--s2);border:1px solid var(--s3);color:var(--tx);font-size:16px;outline:none;font-family:var(--f);transition:border-color .2s" onfocus="this.style.borderColor='var(--ac)'" onblur="this.style.borderColor='var(--s3)'">
+<button class="nc p" onclick="verifyPassport()" style="padding:12px 20px;flex-shrink:0">Verify</button>
+</div>
+<div id="verifyResult" style="display:none"></div>
+<div style="text-align:center;margin-top:12px"><p style="font-size:9px;color:var(--t3)">Try: PV-2026-00001 &middot; PV-2026-00005 &middot; PV-2026-00009</p></div>
+</div>
 </div></div>
 <div class="sec"><div class="ctr">
 <div class="sh" style="text-align:center"><div class="sh-l">FOR PLATFORMS</div><h2>Verify AI Content on Your Platform</h2><p style="max-width:520px;margin:0 auto">Every AI Passport in our registry is queryable. Platforms can verify synthetic origin of any registered persona via Passport ID or QR scan.</p></div>
@@ -807,54 +823,52 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 </div>
 </div></div>
 </div>
-<div class="pv-page" id="page-technology">
-<div class="sec"><div class="ctr">
-<div class="sh" style="text-align:center"><div class="sh-l">TECHNOLOGY</div><h2>AI Identity Infrastructure</h2><p style="max-width:520px;margin:0 auto">Every persona protected by 6 layers of identity verification</p></div>
-<div class="gg c3" style="margin-top:24px">
-<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">FE</div><b style="font-size:13px;display:block;margin-bottom:4px">Face Embedding</b><p style="font-size:10px;color:var(--t2);line-height:1.5">512-dimensional face vector. ArcFace neural network maps facial identity into mathematical space.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">512-dim</span><span class="tg tg-d">ArcFace</span></div></div></div>
-<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">DD</div><b style="font-size:13px;display:block;margin-bottom:4px">Drift Detection</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Real-time identity monitoring. Every new photo compared against baseline. Score 0-100.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Real-time</span><span class="tg tg-d">0-100</span></div></div></div>
-<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">VD</div><b style="font-size:13px;display:block;margin-bottom:4px">Voice DNA</b><p style="font-size:10px;color:var(--t2);line-height:1.5">256-dimensional speaker embedding. Unique voice profile with collision detection across entire database.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">256-dim</span><span class="tg tg-d">Unique</span></div></div></div>
-<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">DS</div><b style="font-size:13px;display:block;margin-bottom:4px">Digital Signature</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Ed25519 cryptographic signature on every piece of content. Publicly verifiable, tamper-evident.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Ed25519</span><span class="tg tg-d">SHA-256</span></div></div></div>
-<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">SS</div><b style="font-size:13px;display:block;margin-bottom:4px">Shadow Simulation</b><p style="font-size:10px;color:var(--t2);line-height:1.5">Preview content impact before posting. Predicted drift, quality score, consistency check.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">Pre-post</span><span class="tg tg-d">Preview</span></div></div></div>
-<div class="uc vis"><div style="padding:20px 14px;text-align:center"><div class="ico gold" style="margin:0 auto 10px;width:40px;height:40px;font-size:11px;font-family:var(--d);font-weight:700">RE</div><b style="font-size:13px;display:block;margin-bottom:4px">Reputation Engine</b><p style="font-size:10px;color:var(--t2);line-height:1.5">5-component score: drift history, content quality, consistency, owner track record, maturity.</p><div style="margin-top:8px;display:flex;justify-content:center;gap:4px"><span class="tg tg-g">5 factors</span><span class="tg tg-d">Scored</span></div></div></div>
-</div>
-<div style="max-width:520px;margin:28px auto 0;padding:20px;background:var(--s1);border-radius:var(--r2);border:1px solid rgba(255,255,255,.04)">
-<div style="text-align:center;margin-bottom:14px"><span style="font-size:9px;font-weight:600;letter-spacing:2px;color:var(--t3)">LIVE DEMO</span><h3 style="font-family:var(--d);font-size:18px;margin-top:4px">Drift Analysis</h3></div>
-<div style="display:flex;gap:12px;align-items:center;margin-bottom:14px"><img src="https://i.pravatar.cc/48?img=47" loading="lazy" decoding="async" style="width:44px;height:44px;border-radius:50%;border:2px solid var(--ac)"><div><b style="font-size:13px">NOVA-7</b><div style="font-size:10px;color:var(--t2)">Baseline: 200 photos &middot; 120-day calendar</div></div></div>
-<button class="ucta gold" onclick="runDrift()" style="width:100%;padding:10px;font-size:11px" id="driftBtn">&#9654; Run Drift Analysis</button>
-<div id="driftR" style="display:none;margin-top:14px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:8px;color:var(--t3);letter-spacing:1.5px;font-weight:600">DRIFT SCORE</span><span id="driftV" style="font-family:var(--d);font-size:24px;font-weight:700"></span></div><div class="id-trk" style="margin-bottom:10px"><div class="id-fl" id="driftBar" style="width:0"></div></div><div id="driftC"></div><div id="driftX" style="margin-top:10px;padding:8px;border-radius:6px;text-align:center;font-size:11px"></div></div>
-</div>
-</div></div>
-<div class="sec"><div class="ctr">
-<div class="sh" style="text-align:center"><div class="sh-num">01</div><div class="sh-l">PROCESS</div><h2>How It Works</h2></div>
-<div class="gg" style="grid-template-columns:repeat(5,1fr);margin-top:16px">
-<div class="uc vis"><div class="ub" style="text-align:center;padding:24px 12px"><div class="ico gold" style="margin:0 auto 10px;width:36px;height:36px;font-size:13px">1</div><b style="font-size:11px">Submit</b><p style="font-size:9px;color:var(--t2);margin-top:6px;line-height:1.5">Upload your AI persona or buy one from the registry.</p></div></div>
-<div class="uc vis"><div class="ub" style="text-align:center;padding:24px 12px"><div class="ico gold" style="margin:0 auto 10px;width:36px;height:36px;font-size:13px">2</div><b style="font-size:11px">Verify</b><p style="font-size:9px;color:var(--t2);margin-top:6px;line-height:1.5">We check: no real-person match, unique identity, synthetic origin.</p></div></div>
-<div class="uc vis"><div class="ub" style="text-align:center;padding:24px 12px"><div class="ico gold" style="margin:0 auto 10px;width:36px;height:36px;font-size:13px">3</div><b style="font-size:11px">Passport</b><p style="font-size:9px;color:var(--t2);margin-top:6px;line-height:1.5">AI Passport issued: QR code, biometrics, unique Creator ID.</p></div></div>
-<div class="uc vis"><div class="ub" style="text-align:center;padding:24px 12px"><div class="ico gold" style="margin:0 auto 10px;width:36px;height:36px;font-size:13px">4</div><b style="font-size:11px">Deploy</b><p style="font-size:9px;color:var(--t2);margin-top:6px;line-height:1.5">Launch on any platform with content calendar and growth strategy.</p></div></div>
-<div class="uc vis"><div class="ub" style="text-align:center;padding:24px 12px"><div class="ico gold" style="margin:0 auto 10px;width:36px;height:36px;font-size:13px">5</div><b style="font-size:11px">Earn</b><p style="font-size:9px;color:var(--t2);margin-top:6px;line-height:1.5">Brand deals, resale, tier rewards. Gold passport from 20K followers.</p></div></div>
-</div>
-</div></div>
-</div>
-<div class="pv-page" id="page-verify">
-<div class="sec"><div class="ctr">
-<div class="sh" style="text-align:center"><div class="sh-l">VERIFICATION</div><h2>Verify Any AI Passport</h2><p style="max-width:480px;margin:0 auto">Enter a Passport ID or scan a QR code. Our database instantly confirms synthetic origin, creator tier, and license status.</p></div>
-<div style="max-width:440px;margin:24px auto 0">
-<div style="display:flex;gap:6px;margin-bottom:16px">
-<input id="verifyInput" placeholder="Enter Passport ID (e.g. PV-2026-00001)" style="flex:1;padding:12px 14px;border-radius:var(--r);background:var(--s2);border:1px solid var(--s3);color:var(--tx);font-size:16px;outline:none;font-family:var(--f);transition:border-color .2s" onfocus="this.style.borderColor='var(--ac)'" onblur="this.style.borderColor='var(--s3)'">
-<button class="nc p" onclick="verifyPassport()" style="padding:12px 20px;flex-shrink:0">Verify</button>
-</div>
-<div id="verifyResult" style="display:none"></div>
-<div style="text-align:center;margin-top:12px"><p style="font-size:9px;color:var(--t3)">Try: PV-2026-00001 &middot; PV-2026-00005 &middot; PV-2026-00009</p></div>
-</div>
-</div></div>
-</div>
-<div class="pv-page" id="page-creator">
+<div class="pv-page" id="page-earn">
 <div class="sec"><div class="ctr">
 <div class="eh"><h3>List Your Persona.<br><span>Earn Forever.</span></h3><p style="font-size:12px;color:var(--t2);max-width:480px;margin:0 auto">List your AI persona. Get verified. Earn from every sale. Top creators earn Gold passports, real cash rewards, and join the PV team.</p></div>
 </div></div>
 <div class="sec"><div class="ctr">
-<div class="sh"><div class="sh-num">07</div><div class="sh-l">CALCULATOR</div><h2>Estimate Your Earnings</h2><p>Sliding scale: more sales = higher commission. 50% base rising to 70% at volume.</p></div>
+<div class="tabs" style="margin-bottom:16px">
+<button class="tab on" onclick="showSub(this,'earn-contribute')">Contribute</button>
+<button class="tab" onclick="showSub(this,'earn-sell')">Sell</button>
+<button class="tab" onclick="showSub(this,'earn-create')">Create</button>
+<button class="tab" onclick="showSub(this,'earn-brands')">Brand Deals</button>
+<button class="tab" onclick="showSub(this,'earn-refer')">Refer</button>
+<button class="tab" onclick="showSub(this,'earn-learn')">Learn</button>
+</div>
+<div id="sub-earn-contribute">
+<div class="sh"><div class="sh-l">MICRO-CONTRIBUTIONS</div><h2>Contribute &amp; Earn</h2><p>Upload photos, write captions, translate content. Earn royalties per sold package.</p></div>
+<div class="gg c4" id="microG"></div>
+</div>
+<div id="sub-earn-sell" style="display:none">
+<div class="sh"><div class="sh-l">ASSET MARKETPLACE</div><h2>Sell Individual Assets</h2><p>Sell standalone packs. Keep 75-80%.</p></div>
+<div class="gg c4" id="assetG"></div>
+</div>
+<div id="sub-earn-create" style="display:none">
+<div class="sh"><div class="sh-l">CREATOR TRACK</div><h2>Build &amp; Sell Personas</h2><p>Certified creators earn the most. Sliding scale revenue share.</p></div>
+<div class="gg c3" id="creatorG"></div>
+</div>
+<div id="sub-earn-brands" style="display:none">
+<div class="sh"><div class="sh-l">BRAND PARTNERSHIPS</div><h2>Brand Deals</h2><p>Connect your persona with brands. Hit the follower threshold, unlock partnerships.</p></div>
+<div class="gg c3" id="brandG"></div>
+</div>
+<div id="sub-earn-refer" style="display:none">
+<div class="sh"><div class="sh-l">REFERRAL</div><h2>Spread the Word</h2><p>Every referral earns. Tiered rewards.</p></div>
+<div class="gg c3" id="refG"></div>
+</div>
+<div id="sub-earn-learn" style="display:none">
+<div class="sh"><div class="sh-l" data-i18n="cert_label">EDUCATION</div><h2 data-i18n="cert_title">Academy</h2></div>
+<div class="gg c3" id="certG"></div>
+<div style="margin-top:24px">
+<div class="sh"><div class="sh-l">COLLECTION</div><h2>Collect AI Personas</h2><p>Every persona is a collectible with rarity, stats, and achievements. Build your collection.</p></div>
+<div class="col-progress"><span style="font-size:9px;color:var(--t3);font-weight:600">YOUR COLLECTION</span><div class="col-progress-bar"><div class="col-progress-fill" style="width:12%;background:linear-gradient(90deg,var(--ac),var(--gold))"></div></div><span class="col-progress-text">3 / 28 collected</span></div>
+<div class="gg c4" id="collectGrid"></div>
+</div>
+<div style="margin-top:24px"><div class="sh"><div class="sh-l">DIGITAL CERTIFICATES</div><h2>Achievement Rewards</h2><p>Earn certificates as you collect, create, and grow.</p></div><div class="gg c3" id="certShowcase"></div></div>
+</div>
+</div></div>
+<div class="sec"><div class="ctr">
+<div class="sh"><div class="sh-l">CALCULATOR</div><h2>Estimate Your Earnings</h2><p>Sliding scale: more sales = higher commission. 50% base rising to 70% at volume.</p></div>
 <div class="calc" id="earnCalc">
 <div class="calc-row"><span class="calc-label">Personas listed</span><input type="range" class="calc-slider" id="calcPersonas" min="1" max="20" value="3" oninput="updateCalc()"><span class="calc-val" id="calcPVal">3</span></div>
 <div class="calc-row"><span class="calc-label">Avg. price ($)</span><input type="range" class="calc-slider" id="calcPrice" min="19" max="199" value="49" step="10" oninput="updateCalc()"><span class="calc-val" id="calcPrVal">$49</span></div>
@@ -885,25 +899,9 @@ background-size:400% 400%;animation:holoShift 5s ease-in-out infinite;mix-blend-
 <div class="uc vis"><div class="uc-h"><div class="um"><div class="unm">Profile Analyzer</div><div class="usub">AI audit for any IG handle</div></div></div><div style="padding:8px 14px"><p style="font-size:11px;color:var(--t2);margin-bottom:6px">Paste any handle for AI growth recommendations.</p><div style="display:flex;gap:4px"><input placeholder="@username" style="flex:1;padding:6px 8px;border-radius:6px;background:var(--s2);border:1px solid var(--s3);color:var(--tx);font-size:16px;outline:none;font-family:var(--f)"><button class="ucta cool">Analyze</button></div></div></div>
 </div>
 </div></div>
-<div class="sec"><div class="ctr"><div class="sh"><div class="sh-l">MICRO-CONTRIBUTIONS</div><h2>Contribute &amp; Earn</h2><p>Upload photos, write captions, translate content. Earn royalties per sold package.</p></div><div class="gg c4" id="microG"></div></div></div>
-<div class="sec"><div class="ctr"><div class="sh"><div class="sh-l">ASSET MARKETPLACE</div><h2>Sell Individual Assets</h2><p>Sell standalone packs. Keep 75-80%.</p></div><div class="gg c4" id="assetG"></div></div></div>
-<div class="sec"><div class="ctr"><div class="sh"><div class="sh-l">CREATOR TRACK</div><h2>Build &amp; Sell Personas</h2><p>Certified creators earn the most. Sliding scale revenue share.</p></div><div class="gg c3" id="creatorG"></div></div></div>
-<div class="sec"><div class="ctr"><div class="sh"><div class="sh-l">REFERRAL</div><h2>Spread the Word</h2><p>Every referral earns. Tiered rewards.</p></div><div class="gg c3" id="refG"></div></div></div>
 <div class="sec"><div class="ctr">
 <div class="sh" style="text-align:center"><div class="sh-l" data-i18n="chat_label">DM PERSONALITY</div><h2 data-i18n="chat_title">Chat Demo</h2></div>
 <div class="cbox" style="margin-top:16px"><div class="chd"><img src="https://i.pravatar.cc/60?img=47" loading="lazy" decoding="async"><div><b>nova.seven</b><small data-i18n="chat_status">Active now</small></div></div><div class="cms" id="chatM"><div class="cm l" data-i18n="chat_greeting">Hey! What brings you here?</div></div><div class="cqr" id="chatQ"></div></div>
-</div></div>
-</div>
-<div class="pv-page" id="page-academy">
-<div class="sec"><div class="ctr">
-<div class="sh"><div class="sh-num">08</div><div class="sh-l" data-i18n="cert_label">EDUCATION</div><h2 data-i18n="cert_title">Academy</h2></div>
-<div class="gg c3" id="certG"></div>
-</div></div>
-<div class="sec"><div class="ctr">
-<div class="sh"><div class="sh-l">COLLECTION</div><h2>Collect AI Personas</h2><p>Every persona is a collectible with rarity, stats, and achievements. Build your collection.</p></div>
-<div class="col-progress"><span style="font-size:9px;color:var(--t3);font-weight:600">YOUR COLLECTION</span><div class="col-progress-bar"><div class="col-progress-fill" style="width:12%;background:linear-gradient(90deg,var(--ac),var(--gold))"></div></div><span class="col-progress-text">3 / 28 collected</span></div>
-<div class="gg c4" id="collectGrid"></div>
-<div style="margin-top:32px"><div class="sh"><div class="sh-l">DIGITAL CERTIFICATES</div><h2>Achievement Rewards</h2><p>Earn certificates as you collect, create, and grow.</p></div><div class="gg c3" id="certShowcase"></div></div>
 </div></div>
 </div>
 </div>
