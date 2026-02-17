@@ -1,7 +1,5 @@
 /* tokens.css — Design tokens for Persona Vault */
-/* Source: persona-vault-v15-a11y.html :root block */
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+/* Fonts loaded via <link> in index.html (faster discovery with preconnect) */
 
 :root {
   /* ——— Surface ——— */
