@@ -11,8 +11,10 @@
 
 - **Tech Step 3:** Clean HTML shell — index.html (no inline styles/scripts), src/js/main.js placeholder
 
+- **Tech Step 4:** base.css — resets, layout, grids, sections, bento grid, a11y, responsive
+
 ## In Progress
-- **Tech Step 4:** base.css — resets, layout, grids, sections, responsive
+- **Tech Step 5:** nav.css — top nav, sub-nav, mobile menu
 
 ## Next
-- **Tech Step 5:** nav.css — top nav, sub-nav, mobile menu
+- **Tech Step 6:** cards.css + components.css + passport.css
