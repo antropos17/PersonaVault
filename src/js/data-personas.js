@@ -304,10 +304,10 @@ export const CATEGORIES = [
 ];
 
 export const PASSPORT_TYPES = {
-  human:   { label: 'HUMAN-LIKE',       coverClass: 'human',   color: '#7a8a9e' },
-  anime:   { label: 'ANIME / CARTOON',  coverClass: 'anime',   color: '#c87a9e' },
-  product: { label: 'VIRTUAL PRODUCT',  coverClass: 'product', color: '#6aaa84' },
-  mascot:  { label: 'BRAND MASCOT',     coverClass: 'mascot',  color: '#c8a84e' },
+  human:   { label: 'HUMAN-LIKE',       coverClass: 'human',   color: 'var(--ac)' },
+  anime:   { label: 'ANIME / CARTOON',  coverClass: 'anime',   color: 'var(--pink)' },
+  product: { label: 'VIRTUAL PRODUCT',  coverClass: 'product', color: 'var(--green)' },
+  mascot:  { label: 'BRAND MASCOT',     coverClass: 'mascot',  color: 'var(--gold)' },
   pet:     { label: 'VIRTUAL PET',      coverClass: 'product', color: '#8aaa94' },
   story:   { label: 'STORY PACK',       coverClass: 'human',   color: '#a08a7a' }
 };
