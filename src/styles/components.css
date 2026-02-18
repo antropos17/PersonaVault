@@ -171,12 +171,6 @@
   .ust div b { font-size: 11px }
 }
 
-/* ===== SCROLL PROGRESS BAR ===== */
-.spb {
-  position: fixed; top: 0; left: 0; height: 1px; z-index: 1200;
-  width: 0; background: var(--ac); opacity: .5;
-}
-
 /* ===== STORY VIEWER ===== */
 .sv-ov {
   position: fixed; inset: 0; z-index: 3000; background: rgba(0, 0, 0, .96);
@@ -372,14 +366,6 @@
 .btt.show { opacity: 1; transform: none }
 .btt:hover { background: rgba(26, 26, 30, .95) }
 
-/* ===== FOOTER ===== */
-.foot {
-  padding: 28px 0; display: flex; align-items: center; justify-content: space-between;
-  font-size: 13px; color: var(--t3);
-}
-.foot a { color: var(--t3); margin-left: 12px; text-decoration: none }
-.foot a:hover { color: var(--t2) }
-
 /* ===== IDENTITY BAR ===== */
 .id-bar {
   padding: 8px 14px; margin: 4px 14px 0; background: rgba(255, 255, 255, .02);
@@ -472,7 +458,6 @@
   .seal-bar { display: grid !important; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 14px }
   .seal { flex-direction: row; gap: 8px; text-align: left }
   .seal span { max-width: none }
-  .foot { flex-direction: column; gap: 8px; text-align: center; font-size: 10px }
   .md { max-width: 100%; max-height: 100vh; border-radius: 0; height: 100vh }
   .mo { padding: 0 }
   .cbox { max-width: 100% }
