@@ -18,5 +18,7 @@
 - **Tech Step 6a:** components.css — persona cards, tags, stats, CTAs, tiers
 - **Tech Step 6b:** components.css — modals, chat, FAQ, leaderboard, seals, toast, footer, identity; passport.css — holographic effects, 3D flip card
 
+- **Tech Step 8:** Tab transitions + micro-interactions — page fade-in, card grid-template-rows expand, button :active press, modal entry animation
+
 ## Next
-- **Tech Step 7:** data.js — all arrays as ES module exports
+- **Tech Step 9:** (pending)

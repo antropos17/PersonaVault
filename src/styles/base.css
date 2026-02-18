@@ -26,6 +26,11 @@ body::before {
 .pg { position: relative; z-index: 1; -webkit-overflow-scrolling: touch }
 .spb { position: fixed; top: 0; left: 0; height: 1px; z-index: 1200; width: 0; background: var(--ac); opacity: .5 }
 
+/* ===== PAGE VISIBILITY ===== */
+.pv-page { display: none }
+.pv-page.active { display: block; animation: pageIn 180ms var(--ease) }
+@keyframes pageIn { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: none } }
+
 /* ===== CONTAINER & SECTIONS ===== */
 .ctr { max-width: 1280px; margin: 0 auto; padding: 0 24px; overflow-x: hidden }
 .sec { padding: 120px 0; position: relative; content-visibility: auto; contain-intrinsic-size: auto 800px }
@@ -80,6 +85,9 @@ body::before {
 /* ===== A11Y: FOCUS VISIBLE ===== */
 *:focus { outline: none }
 *:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; border-radius: 2px }
+
+/* ===== BUTTON PRESS FEEDBACK ===== */
+.nc:active, .ucta:active, .pp-btn:active, .fq:active { transform: scale(.97) }
 
 /* ===== A11Y: REDUCED MOTION ===== */
 @media (prefers-reduced-motion: reduce) {
