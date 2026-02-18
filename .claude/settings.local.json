@@ -17,7 +17,14 @@
       "Bash(node:*)",
       "Bash(npm install:*)",
       "Bash(start \"\" \"X:/Future/Persona Vault/persona-vault-v15-a11y.html\")",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(npx vite:*)",
+      "Bash(git status:*)",
+      "Bash(curl:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "mcp__github__get_file_contents"
     ]
   }
 }
