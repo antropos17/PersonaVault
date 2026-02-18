@@ -15,8 +15,8 @@
 
 - **Tech Step 5:** nav.css — top bar, sub nav, mobile menu, search, language switcher
 
-## In Progress
-- **Tech Step 6:** cards.css + components.css + passport.css
+- **Tech Step 6a:** components.css — persona cards, tags, stats, CTAs, tiers
+- **Tech Step 6b:** components.css — modals, chat, FAQ, leaderboard, seals, toast, footer, identity; passport.css — holographic effects, 3D flip card
 
 ## Next
 - **Tech Step 7:** data.js — all arrays as ES module exports

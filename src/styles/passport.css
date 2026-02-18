@@ -1,0 +1,400 @@
+/* passport.css — Passport card, holographic effects, 3D flip */
+
+/* ===== PASSPORT BASE ===== */
+.passport {
+  width: 100%; max-width: 420px; margin: 0 auto; border-radius: 14px;
+  padding: 0; position: relative; overflow: hidden; font-family: var(--f);
+  transition: transform .25s ease, box-shadow .25s ease;
+  transform-style: preserve-3d; perspective: 800px;
+}
+.passport-full { max-width: 460px }
+
+/* ===== TIER VARIANTS ===== */
+.passport.pp-exc {
+  background: linear-gradient(160deg, #0a1628, #0f1f3a, #0c1a30, #0a1426);
+  border: 2px solid rgba(196, 164, 108, .5);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, .6), 0 0 30px rgba(196, 164, 108, .12),
+    0 0 60px rgba(196, 164, 108, .06), inset 0 1px 0 rgba(196, 164, 108, .15);
+}
+.passport.pp-prem {
+  background: linear-gradient(160deg, #2a0e14, #3a1420, #301018, #280c12);
+  border: 2px solid rgba(200, 160, 160, .3);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, .6), 0 0 20px rgba(200, 180, 180, .06),
+    inset 0 1px 0 rgba(255, 200, 200, .1);
+}
+.passport.pp-std {
+  background: linear-gradient(160deg, #0a1a12, #102418, #0e2014, #0a1810);
+  border: 1.5px solid rgba(100, 160, 120, .25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .5), inset 0 1px 0 rgba(100, 180, 120, .08);
+}
+.passport.pp-demo {
+  background: linear-gradient(160deg, #1a1a1e, #222228, #1e1e24);
+  border: 1.5px solid rgba(255, 255, 255, .1);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .4);
+}
+
+/* ===== WATERMARK ===== */
+.passport::before {
+  content: 'PV'; position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%); font-family: var(--d);
+  font-size: 160px; font-weight: 900; opacity: .025; z-index: 1;
+  pointer-events: none; letter-spacing: 12px; color: #fff;
+}
+
+/* ===== HOLOGRAPHIC SHINE ===== */
+.pp-shine {
+  position: absolute; inset: 0; z-index: 6; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .08) 45%,
+    rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .08) 55%, transparent 70%);
+  background-size: 250% 100%; animation: shineBeam 4s ease-in-out infinite;
+}
+.pp-exc .pp-shine {
+  background: linear-gradient(105deg, transparent 25%, rgba(255, 220, 130, .1) 38%,
+    rgba(255, 255, 255, .25) 50%, rgba(255, 220, 130, .1) 62%, transparent 75%);
+  background-size: 250% 100%; animation: shineBeam 3s ease-in-out infinite;
+}
+@keyframes shineBeam { 0% { background-position: 200% 0 } 100% { background-position: -50% 0 } }
+
+/* ===== HOLOGRAPHIC LAYER ===== */
+.pp-holo { position: absolute; inset: 0; z-index: 5; pointer-events: none; opacity: .4 }
+.pp-std .pp-holo, .pp-demo .pp-holo {
+  background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, .03) 50%, transparent 70%);
+  background-size: 200% 200%; animation: holoShift 10s ease-in-out infinite;
+}
+.pp-prem .pp-holo {
+  background: linear-gradient(135deg, transparent 15%, rgba(255, 200, 200, .08) 30%,
+    rgba(220, 180, 255, .06) 45%, transparent 55%, rgba(255, 220, 200, .06) 70%,
+    rgba(200, 200, 255, .05) 85%, transparent 95%);
+  background-size: 300% 300%; animation: holoShift 7s ease-in-out infinite;
+  mix-blend-mode: screen; opacity: .7;
+}
+.pp-exc .pp-holo {
+  background: linear-gradient(135deg,
+    rgba(255, 180, 50, .2) 0%, rgba(255, 100, 100, .15) 15%,
+    rgba(255, 50, 200, .15) 30%, rgba(100, 100, 255, .18) 45%,
+    rgba(50, 200, 255, .15) 60%, rgba(50, 255, 150, .15) 75%,
+    rgba(255, 220, 50, .2) 90%, rgba(255, 150, 50, .15) 100%);
+  background-size: 400% 400%; animation: holoShift 5s ease-in-out infinite;
+  mix-blend-mode: screen; opacity: 1;
+}
+@keyframes holoShift {
+  0% { background-position: 0% 50% } 25% { background-position: 100% 0% }
+  50% { background-position: 100% 100% } 75% { background-position: 0% 100% }
+  100% { background-position: 0% 50% }
+}
+
+/* ===== HOLOGRAPHIC STRIPE ===== */
+.pp-holo-stripe {
+  position: absolute; bottom: 38px; left: 0; right: 0; height: 18px;
+  z-index: 7; pointer-events: none; opacity: .4;
+  background: repeating-linear-gradient(90deg,
+    rgba(255, 255, 255, .04) 0px, rgba(255, 255, 255, .08) 2px,
+    transparent 4px, transparent 8px);
+  animation: stripeShift 10s linear infinite;
+}
+.pp-prem .pp-holo-stripe {
+  opacity: .6; height: 22px;
+  background: repeating-linear-gradient(90deg,
+    rgba(200, 160, 160, .06) 0px, rgba(255, 200, 200, .1) 2px,
+    rgba(200, 180, 255, .06) 4px, transparent 6px, transparent 10px);
+  animation: stripeShift 6s linear infinite;
+}
+.pp-exc .pp-holo-stripe {
+  opacity: 1; height: 28px;
+  background: repeating-linear-gradient(90deg,
+    rgba(255, 200, 50, .08) 0px, rgba(255, 100, 150, .15) 3px,
+    rgba(100, 150, 255, .15) 6px, rgba(50, 255, 180, .1) 9px,
+    rgba(255, 220, 50, .08) 12px, transparent 15px, transparent 18px);
+  animation: stripeShift 3s linear infinite;
+}
+@keyframes stripeShift { 0% { background-position: 0 0 } 100% { background-position: 120px 0 } }
+
+/* ===== PASSPORT HEADER ===== */
+.pp-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 18px 22px 14px; border-bottom: 1px solid rgba(255, 255, 255, .08);
+  position: relative; z-index: 8;
+}
+.pp-logo {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 2px solid rgba(196, 164, 108, .5);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--d); font-size: 16px; font-weight: 800;
+  color: var(--ac); flex-shrink: 0; background: rgba(196, 164, 108, .06);
+}
+.pp-exc .pp-logo {
+  border-color: rgba(196, 164, 108, .9);
+  box-shadow: 0 0 16px rgba(196, 164, 108, .3);
+  background: rgba(196, 164, 108, .1);
+}
+.pp-prem .pp-logo { border-color: rgba(200, 160, 160, .5); color: #d4a0a0 }
+.pp-std .pp-logo { border-color: rgba(100, 160, 120, .4); color: #80b890 }
+.pp-title {
+  font-family: var(--d); font-size: 14px; font-weight: 700;
+  letter-spacing: 2.5px; line-height: 1.3;
+}
+.pp-exc .pp-title { color: var(--ac) }
+.pp-prem .pp-title { color: #d4a0a0 }
+.pp-std .pp-title { color: #80b890 }
+.pp-demo .pp-title { color: var(--t2) }
+.pp-title span {
+  font-size: 10px; font-weight: 500; letter-spacing: 3px;
+  color: rgba(255, 255, 255, .35); display: block; margin-top: 2px;
+}
+.pp-chip {
+  margin-left: auto; width: 32px; height: 24px; border-radius: 4px;
+  background: linear-gradient(135deg, #b8a060, #8a7040, #c4a868, #9a8050);
+  border: 1px solid rgba(255, 255, 255, .15); position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+}
+.pp-chip::after {
+  content: ''; position: absolute; inset: 4px;
+  border: 1px solid rgba(255, 255, 255, .12); border-radius: 1px;
+}
+.pp-prem .pp-chip {
+  background: linear-gradient(135deg, #c0b0b0, #908080, #b8a8a8, #988888);
+}
+
+/* ===== PASSPORT BODY ===== */
+.pp-body {
+  display: flex; gap: 18px; padding: 18px 22px;
+  position: relative; z-index: 8;
+}
+.pp-photo {
+  width: 100px; height: 124px; border-radius: 4px; overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, .1); flex-shrink: 0;
+  background: var(--s2); box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+}
+.pp-photo img { width: 100%; height: 100%; object-fit: cover }
+.pp-exc .pp-photo { border-color: rgba(196, 164, 108, .3) }
+.pp-info { flex: 1; display: flex; flex-direction: column; gap: 6px }
+.pp-row { display: flex; flex-direction: column; gap: 1px }
+.pp-label {
+  font-size: 9px; font-weight: 600; letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, .35); text-transform: uppercase;
+}
+.pp-val { font-size: 13px; font-weight: 500; color: var(--tx) }
+.pp-mono { font-family: 'Courier New', monospace; font-size: 12px; letter-spacing: 1.5px }
+.pp-tier { font-weight: 700; font-size: 12px }
+.pp-exc .pp-tier { color: var(--ac); text-shadow: 0 0 8px rgba(196, 164, 108, .3) }
+.pp-prem .pp-tier { color: #d4a0a0 }
+.pp-std .pp-tier { color: #80b890 }
+.pp-demo .pp-tier { color: var(--t2) }
+
+/* ===== PASSPORT FOOTER ===== */
+.pp-footer {
+  padding: 12px 22px 16px; border-top: 1px solid rgba(255, 255, 255, .06);
+  position: relative; z-index: 8;
+}
+.pp-verify { display: flex; align-items: center; gap: 12px; margin-bottom: 10px }
+.pp-qr {
+  width: 36px; height: 36px; border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: rgba(255, 255, 255, .3); background: rgba(255, 255, 255, .03);
+}
+.pp-seal-txt { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; line-height: 1.5 }
+.pp-exc .pp-seal-txt { color: var(--ac); text-shadow: 0 0 6px rgba(196, 164, 108, .2) }
+.pp-prem .pp-seal-txt { color: #c09080 }
+.pp-std .pp-seal-txt { color: #70a880 }
+.pp-demo .pp-seal-txt { color: var(--t3) }
+.pp-mrz {
+  font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, .3); word-break: break-all; line-height: 1.4;
+  padding: 8px 10px; background: rgba(0, 0, 0, .2);
+  border-radius: 4px; border: 1px solid rgba(255, 255, 255, .04);
+}
+
+/* ===== PASSPORT IN MODAL ===== */
+.md .passport { max-width: 100% }
+.md .pp-photo { width: 80px; height: 100px }
+.md .pp-body { padding: 14px 18px }
+.md .pp-head { padding: 14px 18px 12px }
+.md .pp-footer { padding: 10px 18px 12px }
+
+/* ===== 3D FLIP CARD ===== */
+.pp-scene { perspective: 1200px; cursor: pointer; margin: 0 auto }
+.pp-card {
+  width: 100%; height: 100%; position: relative;
+  transition: transform .8s cubic-bezier(.4, .2, .2, 1);
+  transform-style: preserve-3d; will-change: transform;
+}
+.pp-scene.flipped .pp-card { transform: rotateY(180deg) }
+.pp-face {
+  position: absolute; inset: 0; backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; border-radius: 12px; overflow: hidden;
+}
+.pp-back { transform: rotateY(180deg) }
+
+/* ===== FLIP CARD — COVER ===== */
+.pp-cover {
+  width: 100%; height: 100%; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 32px 24px;
+  position: relative; border: 2px solid rgba(255, 255, 255, .08); border-radius: 12px;
+}
+.pp-cover.human { background: linear-gradient(160deg, #0a1628, #0f1f3a, #0c1a30); border-color: rgba(122, 138, 158, .3) }
+.pp-cover.anime { background: linear-gradient(160deg, #2a0a2a, #3a1430, #2e0e28); border-color: rgba(200, 122, 158, .3) }
+.pp-cover.product { background: linear-gradient(160deg, #0a1a14, #0f2a1e, #0c2018); border-color: rgba(106, 170, 132, .3) }
+.pp-cover.mascot { background: linear-gradient(160deg, #1a1a0a, #2a2810, #24200c); border-color: rgba(200, 168, 78, .3) }
+.pp-cover.tier-original { box-shadow: 0 8px 40px rgba(0, 0, 0, .6), 0 0 30px rgba(196, 164, 108, .15) }
+.pp-cover.tier-original::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255, 200, 50, .06) 0%, transparent 40%,
+    rgba(255, 200, 50, .04) 60%, transparent 100%);
+  pointer-events: none; border-radius: 12px;
+}
+.pp-cover.tier-certified { box-shadow: 0 8px 32px rgba(0, 0, 0, .5), 0 0 20px rgba(168, 180, 192, .08) }
+.pp-cover.tier-registered { box-shadow: 0 6px 24px rgba(0, 0, 0, .4) }
+
+/* ===== FLIP CARD — COVER TEXT ===== */
+.pp-cover-logo {
+  font-family: var(--d); font-size: 48px; font-weight: 900;
+  color: rgba(255, 255, 255, .12); letter-spacing: 8px; margin-bottom: 8px;
+}
+.pp-cover.tier-original .pp-cover-logo { color: rgba(196, 164, 108, .25) }
+.pp-cover-title {
+  font-family: var(--d); font-size: 14px; font-weight: 700;
+  letter-spacing: 4px; color: rgba(255, 255, 255, .5); margin-bottom: 4px;
+}
+.pp-cover.tier-original .pp-cover-title { color: rgba(196, 164, 108, .7) }
+.pp-cover-main {
+  font-family: var(--d); font-size: 22px; font-weight: 800;
+  letter-spacing: 6px; color: rgba(255, 255, 255, .7); margin-bottom: 4px;
+}
+.pp-cover.tier-original .pp-cover-main { color: rgba(196, 164, 108, .85) }
+.pp-cover-sub { font-size: 8px; letter-spacing: 3px; color: rgba(255, 255, 255, .25); margin-bottom: 20px }
+.pp-cover-type {
+  font-size: 10px; font-weight: 600; letter-spacing: 2px;
+  padding: 6px 16px; border: 1px solid; border-radius: var(--r3); margin-bottom: 12px;
+}
+
+/* ===== TIER BADGES (passport) ===== */
+.pp-tier-badge { font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 4px 12px; border-radius: var(--r3) }
+.pp-tier-badge.original { background: rgba(196, 164, 108, .15); color: var(--ac); border: 1px solid rgba(196, 164, 108, .3) }
+.pp-tier-badge.certified { background: rgba(168, 180, 192, .1); color: var(--silver); border: 1px solid rgba(168, 180, 192, .2) }
+.pp-tier-badge.registered { background: rgba(255, 255, 255, .05); color: var(--t3); border: 1px solid rgba(255, 255, 255, .08) }
+.pp-flip-hint { position: absolute; bottom: 16px; font-size: 9px; color: rgba(255, 255, 255, .2); letter-spacing: 1px }
+
+/* ===== FLIP CARD — INNER (back side) ===== */
+.pp-inner-wrap {
+  width: 100%; height: 100%; position: relative;
+  background: linear-gradient(160deg, #f8f4ee, #f0ece4, #e8e2d8);
+  border-radius: 12px; border: 2px solid rgba(0, 0, 0, .08); overflow: hidden;
+}
+.pp-holo-new {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: linear-gradient(135deg, transparent 20%, rgba(200, 180, 100, .08) 35%,
+    rgba(180, 200, 255, .06) 50%, rgba(200, 180, 100, .06) 65%, transparent 80%);
+  background-size: 300% 300%; animation: holoShift 6s ease-in-out infinite;
+  mix-blend-mode: multiply;
+}
+.pp-inner {
+  padding: 14px 16px; position: relative; z-index: 3;
+  height: 100%; display: flex; flex-direction: column;
+}
+.pp-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-bottom: 8px; border-bottom: 1px solid rgba(0, 0, 0, .08); margin-bottom: 8px;
+}
+.pp-header-left {
+  font-size: 8px; font-weight: 600; letter-spacing: 1px;
+  color: rgba(0, 0, 0, .35); text-transform: uppercase;
+}
+.pp-header-right {
+  font-size: 9px; font-weight: 700; letter-spacing: 1.5px;
+  color: rgba(0, 0, 0, .4); font-family: 'Courier New', monospace;
+}
+
+/* ===== FLIP CARD — QR & PHOTO ===== */
+.pp-qr-new {
+  width: 56px; height: 56px; border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 4px; display: flex; align-items: center; justify-content: center;
+  background: rgba(255, 255, 255, .8); flex-shrink: 0;
+}
+.pp-qr-new img { image-rendering: pixelated }
+.pp-body-new { display: flex; gap: 12px; margin-bottom: 8px }
+.pp-photo-new {
+  width: 80px; height: 100px; border-radius: 4px; overflow: hidden;
+  border: 2px solid rgba(0, 0, 0, .1); flex-shrink: 0; background: #ddd;
+}
+.pp-photo-new img { width: 100%; height: 100%; object-fit: cover }
+
+/* ===== FLIP CARD — DATA FIELDS ===== */
+.pp-data { flex: 1; display: flex; flex-direction: column; gap: 4px }
+.pp-field { margin-bottom: 2px }
+.pp-label-new {
+  font-size: 7px; font-weight: 700; letter-spacing: 1.5px;
+  color: rgba(0, 0, 0, .3); text-transform: uppercase;
+}
+.pp-value { font-size: 12px; font-weight: 600; color: rgba(0, 0, 0, .75) }
+.pp-value.small { font-size: 10px; font-weight: 500 }
+.pp-value.mono { font-family: 'Courier New', monospace; font-size: 10px; letter-spacing: 1px }
+.pp-row-new { display: flex; gap: 12px }
+.pp-row-new .pp-field { flex: 1 }
+
+/* ===== FLIP CARD — TRAITS & SOCIALS ===== */
+.pp-traits { display: flex; flex-wrap: wrap; gap: 3px }
+.pp-trait {
+  font-size: 9px; padding: 2px 8px; border-radius: var(--r3);
+  background: rgba(0, 0, 0, .06); color: rgba(0, 0, 0, .5); font-weight: 500;
+}
+.pp-socials { display: flex; flex-wrap: wrap; gap: 3px }
+.pp-social {
+  font-size: 9px; padding: 2px 8px; border-radius: var(--r3);
+  background: rgba(100, 140, 200, .1); color: rgba(60, 90, 140, .7); font-weight: 500;
+}
+
+/* ===== FLIP CARD — STAMP & QUALITY ===== */
+.pp-stamp {
+  font-size: 8px; font-weight: 700; letter-spacing: 1px;
+  color: rgba(60, 120, 80, .7); padding: 3px 8px;
+  border: 1px solid rgba(60, 120, 80, .2); border-radius: var(--r3);
+}
+.pp-quality { display: flex; gap: 1px }
+.pp-star { font-size: 12px }
+.pp-star.on { color: #c8a84e }
+.pp-star.off { color: rgba(0, 0, 0, .1) }
+
+/* ===== FLIP CARD — MRZ & VERIFY ===== */
+.pp-mrz-new {
+  font-family: 'Courier New', monospace; font-size: 8px; letter-spacing: 1.5px;
+  color: rgba(0, 0, 0, .25); word-break: break-all; line-height: 1.3;
+  padding: 6px 8px; background: rgba(0, 0, 0, .03);
+  border-radius: 3px; border: 1px solid rgba(0, 0, 0, .04); margin-top: auto;
+}
+.pp-verify-new {
+  font-size: 8px; color: rgba(0, 0, 0, .3); text-align: center;
+  padding: 4px 0 0; margin-top: 4px;
+}
+.pp-verify-new a { color: rgba(60, 90, 140, .5); text-decoration: none }
+.pp-verify-new a:hover { text-decoration: underline }
+
+/* ===== PASSPORT SHOWCASE ===== */
+.pp-showcase { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 24px }
+.pp-type-label { font-size: 11px; font-weight: 600; margin-top: 8px; letter-spacing: .3px }
+.pp-type-sub { font-size: 9px; color: var(--t3); margin-top: 2px }
+
+/* ===== LIGHT THEME ===== */
+[data-theme="light"] .pp-inner-wrap { border-color: rgba(0, 0, 0, .12) }
+
+/* ===== RESPONSIVE: 800px ===== */
+@media (max-width: 800px) {
+  .pp-scene { width: 280px !important; height: 380px !important; margin: 0 auto }
+  .pp-showcase { gap: 16px }
+}
+
+/* ===== RESPONSIVE: 550px ===== */
+@media (max-width: 550px) {
+  .pp-scene { width: 100% !important }
+  .pp-body { flex-direction: column; align-items: center }
+  .pp-photo { width: 70px; height: 90px }
+  .pp-data { width: 100% }
+  .pp-cover { padding: 28px 16px }
+  .pp-inner { padding: 12px }
+  .pp-mrz { font-size: 6px; letter-spacing: 1px }
+  .pp-showcase { flex-direction: column; align-items: center; gap: 12px }
+}
+
+/* ===== RESPONSIVE: 380px ===== */
+@media (max-width: 380px) {
+  .pp-cover-main { font-size: 15px }
+}
