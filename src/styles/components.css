@@ -106,8 +106,7 @@
 }
 .ucta.gold { background: var(--ac); color: #fff; font-weight: 600 }
 .ucta.gold:hover { background: var(--ac2) }
-.ucta.muted { background: var(--s2); color: var(--t2); border: 1px solid rgba(255, 255, 255, .06) }
-.ucta.cool { background: var(--s2); color: var(--t2); border: 1px solid rgba(255, 255, 255, .06) }
+.ucta.muted, .ucta.cool { background: var(--s2); color: var(--t2); border: 1px solid rgba(255, 255, 255, .06) }
 .ucta.out { background: transparent; border: 1px solid rgba(255, 255, 255, .08); color: var(--tx) }
 .ucta.out:hover { border-color: rgba(255, 255, 255, .15) }
 
@@ -441,8 +440,8 @@
 .pp-btn:hover { border-color: var(--ac); color: var(--ac) }
 
 /* ===== LIGHT THEME (components 6b) ===== */
-[data-theme="light"] .toast { background: #fff; border-color: #e0ddd8 }
-[data-theme="light"] .btt { background: #fff; border-color: #e0ddd8; color: #4a4640 }
+[data-theme="light"] .toast { background: var(--s1); border-color: var(--s3) }
+[data-theme="light"] .btt { background: var(--s1); border-color: var(--s3); color: var(--t2) }
 
 /* ===== RESPONSIVE: hover:none (6b) ===== */
 @media (hover: none) {

@@ -351,7 +351,7 @@
 }
 .pp-quality { display: flex; gap: 1px }
 .pp-star { font-size: 12px }
-.pp-star.on { color: #c8a84e }
+.pp-star.on { color: var(--gold) }
 .pp-star.off { color: rgba(0, 0, 0, .1) }
 
 /* ===== FLIP CARD — MRZ & VERIFY ===== */
